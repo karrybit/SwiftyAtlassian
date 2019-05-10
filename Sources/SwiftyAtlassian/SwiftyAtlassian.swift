@@ -31,76 +31,76 @@ public enum Sprint: EndPoint {}
 public enum Content: EndPoint {}
 
 public extension Atlassian {
-    public struct Jira<E: EndPoint>: ServiceProtocol {
+    struct Jira<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct JiraSoftware<E: EndPoint>: ServiceProtocol {
+    struct JiraSoftware<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct JiraServiceDesk<E: EndPoint>: ServiceProtocol {
+    struct JiraServiceDesk<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct Bitbucket<E: EndPoint>: ServiceProtocol {
+    struct Bitbucket<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct Confluence<E: EndPoint>: ServiceProtocol {
+    struct Confluence<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
 }
 
 public extension Atlassian where Infra == Server {
-    public struct Bamboo<E: EndPoint>: ServiceProtocol {
+    struct Bamboo<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct Crowd<E: EndPoint>: ServiceProtocol {
+    struct Crowd<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct FisheyeAndCrucible<E: EndPoint>: ServiceProtocol {
+    struct FisheyeAndCrucible<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
 }
 
 public extension Atlassian where Infra == Cloud {
-    public struct Organizations<E: EndPoint>: ServiceProtocol {
+    struct Organizations<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct UserManagement<E: EndPoint>: ServiceProtocol {
+    struct UserManagement<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct UserProvisioning<E: EndPoint>: ServiceProtocol {
+    struct UserProvisioning<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct Trello<E: EndPoint>: ServiceProtocol {
+    struct Trello<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct StatusPage<E: EndPoint>: ServiceProtocol {
+    struct StatusPage<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
     
-    public struct Opsgenie<E: EndPoint>: ServiceProtocol {
+    struct Opsgenie<E: EndPoint>: ServiceProtocol {
         public typealias Service = E
         let user: User
     }
