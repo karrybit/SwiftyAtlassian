@@ -2,11 +2,11 @@ public struct User {
     public init() {}
 }
 
-public protocol Infrastructure {}
-public enum Server: Infrastructure {}
-public enum Cloud: Infrastructure {}
+public protocol InfrastructureProtocol {}
+public enum Server: InfrastructureProtocol {}
+public enum Cloud: InfrastructureProtocol {}
 
-public struct Atlassian<Infra: Infrastructure> {}
+public struct Atlassian<Infrastructure: InfrastructureProtocol> {}
 
 protocol ServiceProtocol {
     var user: User { get }
@@ -44,7 +44,7 @@ public extension Atlassian {
     }
 }
 
-public extension Atlassian where Infra == Server {
+public extension Atlassian where Infrastructure == Server {
     struct Bamboo<Category: ProcessCategory>: ServiceProtocol {
         let user: User
         public init(withAuth user: User) { self.user = user }
@@ -61,7 +61,7 @@ public extension Atlassian where Infra == Server {
     }
 }
 
-public extension Atlassian where Infra == Cloud {
+public extension Atlassian where Infrastructure == Cloud {
     struct Organizations<Category: ProcessCategory>: ServiceProtocol {
         let user: User
         public init(withAuth user: User) { self.user = user }
