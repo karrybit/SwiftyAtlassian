@@ -1,3 +1,5 @@
 # SwiftyAtlassian
 
-A description of this package.
+#### SwiftyAtlassian is base architecture of Atlassian REST API
+
+https://developer.atlassian.com/
