@@ -1,5 +1,10 @@
 public struct User {
-    public init() {}
+    public let name: String
+    public let password: String
+    public init(name: String, password: String) {
+        self.name = name
+        self.password = password
+    }
 }
 
 public protocol InfrastructureProtocol {}
