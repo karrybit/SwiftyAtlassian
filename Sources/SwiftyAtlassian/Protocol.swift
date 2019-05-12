@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import User
 
 public protocol ServiceProtocol {
     var user: User { get }
