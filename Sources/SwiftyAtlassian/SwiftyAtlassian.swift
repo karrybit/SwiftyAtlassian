@@ -12,7 +12,3 @@ public enum Server: InfrastructureProtocol {}
 public enum Cloud: InfrastructureProtocol {}
 
 public struct Atlassian<Infrastructure: InfrastructureProtocol> {}
-
-public protocol ProcessCategory {}
-public enum Sprint: ProcessCategory {}
-public enum Content: ProcessCategory {}
