@@ -16,22 +16,22 @@ public extension Atlassian {
 
 public protocol ConfluenceAPI {}
 public extension Atlassian.Confluence {
-    enum AccessMode: ConfluenceAPI {}
-    enum Audit: ConfluenceAPI {}
-    enum Content: ConfluenceAPI {}
-    enum ContentChild: ConfluenceAPI {}
-    enum ContentChildAttachment: ConfluenceAPI {}
-    enum ContentDescendant: ConfluenceAPI {}
-    enum ContentLabel: ConfluenceAPI {}
-    enum ContentProperty: ConfluenceAPI {}
-    enum ContentRestriction: ConfluenceAPI {}
-    enum ContentBlueprint: ConfluenceAPI {}
-    enum ContentBodyConvert: ConfluenceAPI {}
-    enum Group: ConfluenceAPI {}
-    enum LongTask: ConfluenceAPI {}
-    enum Search: ConfluenceAPI {}
-    enum Space: ConfluenceAPI {}
-    enum SpaceProperty: ConfluenceAPI {}
-    enum User: ConfluenceAPI {}
-    enum UserWatch: ConfluenceAPI {}
+    enum AccessMode:                APICategory & ConfluenceAPI {}
+    enum Audit:                     APICategory & ConfluenceAPI {}
+    enum Content:                   APICategory & ConfluenceAPI {}
+    enum ContentChild:              APICategory & ConfluenceAPI {}
+    enum ContentChildAttachment:    APICategory & ConfluenceAPI {}
+    enum ContentDescendant:         APICategory & ConfluenceAPI {}
+    enum ContentLabel:              APICategory & ConfluenceAPI {}
+    enum ContentProperty:           APICategory & ConfluenceAPI {}
+    enum ContentRestriction:        APICategory & ConfluenceAPI {}
+    enum ContentBlueprint:          APICategory & ConfluenceAPI {}
+    enum ContentBodyConvert:        APICategory & ConfluenceAPI {}
+    enum Group:                     APICategory & ConfluenceAPI {}
+    enum LongTask:                  APICategory & ConfluenceAPI {}
+    enum Search:                    APICategory & ConfluenceAPI {}
+    enum Space:                     APICategory & ConfluenceAPI {}
+    enum SpaceProperty:             APICategory & ConfluenceAPI {}
+    enum User:                      APICategory & ConfluenceAPI {}
+    enum UserWatch:                 APICategory & ConfluenceAPI {}
 }

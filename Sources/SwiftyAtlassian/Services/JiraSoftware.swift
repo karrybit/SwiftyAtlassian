@@ -16,15 +16,15 @@ public extension Atlassian {
 
 public protocol JiraSoftwereAPI {}
 public extension Atlassian.JiraSoftware {
-    enum Backlog: JiraSoftwereAPI {}
-    enum Board: JiraSoftwereAPI {}
-    enum BoardEpic: JiraSoftwereAPI {}
-    enum BoardProject: JiraSoftwereAPI {}
-    enum BoardProperties: JiraSoftwereAPI {}
-    enum BoardSprint: JiraSoftwereAPI {}
-    enum BoardVersion: JiraSoftwereAPI {}
-    enum Epic: JiraSoftwereAPI {}
-    enum Issue: JiraSoftwereAPI {}
-    enum Sprint: JiraSoftwereAPI {}
-    enum SprintProperties: JiraSoftwereAPI {}
+    enum Backlog:           APICategory & JiraSoftwereAPI {}
+    enum Board:             APICategory & JiraSoftwereAPI {}
+    enum BoardEpic:         APICategory & JiraSoftwereAPI {}
+    enum BoardProject:      APICategory & JiraSoftwereAPI {}
+    enum BoardProperties:   APICategory & JiraSoftwereAPI {}
+    enum BoardSprint:       APICategory & JiraSoftwereAPI {}
+    enum BoardVersion:      APICategory & JiraSoftwereAPI {}
+    enum Epic:              APICategory & JiraSoftwereAPI {}
+    enum Issue:             APICategory & JiraSoftwereAPI {}
+    enum Sprint:            APICategory & JiraSoftwereAPI {}
+    enum SprintProperties:  APICategory & JiraSoftwereAPI {}
 }

@@ -16,77 +16,71 @@ public extension Atlassian {
 
 public protocol JiraAPI {}
 public extension Atlassian.Jira {
-    enum Two: JiraAPI {}
-    enum ApplicationProperties: JiraAPI {}
-    enum ApplicationRole: JiraAPI {}
-    enum Attachment: JiraAPI {}
-    enum Auditing: JiraAPI {}
-    enum Avatar: JiraAPI {}
-    enum Cluster: JiraAPI {}
-    enum ClusterZdu: JiraAPI {}
-    enum Comment: JiraAPI {}
-    enum Component: JiraAPI {}
-    enum Configuration: JiraAPI {}
-    enum CustomFieldOption: JiraAPI {}
-    enum CustomFields: JiraAPI {}
-    enum Dashboard: JiraAPI {}
-    enum DashboardItems: JiraAPI {}
-    enum Field: JiraAPI {}
-    enum Filter: JiraAPI {}
-    enum Group: JiraAPI {}
-    enum Groups: JiraAPI {}
-    enum GroupUserPicker: JiraAPI {}
-    enum Summary: JiraAPI {}
-    enum Issue: JiraAPI {}
-    enum IssueAttachments: JiraAPI {}
-    enum IssueProperties: JiraAPI {}
-    enum IssueSubtask: JiraAPI {}
-    enum IssueLink: JiraAPI {}
-    enum IssueLinkType: JiraAPI {}
-    enum IssueSecuritySchemes: JiraAPI {}
-    enum IssueType: JiraAPI {}
-    enum IssueTypeProperties: JiraAPI {}
-    enum IssueTypeScheme: JiraAPI {}
-    enum AutocompleteData: JiraAPI {}
-    enum LicenseValidator: JiraAPI {}
-    enum Jmx: JiraAPI {}
-    enum MyPreferences: JiraAPI {}
-    enum Myself: JiraAPI {}
-    enum NotificationScheme: JiraAPI {}
-    enum Password: JiraAPI {}
-    enum PermissionScheme: JiraAPI {}
-    enum Priority: JiraAPI {}
-    enum PrioritySchemes: JiraAPI {}
-    enum Project: JiraAPI {}
-    enum ProjectProperties: JiraAPI {}
-    enum ProjectRole: JiraAPI {}
-    enum ProjectIssueSecurityLevelScheme: JiraAPI {}
-    enum ProjectNotificationScheme: JiraAPI {}
-    enum ProjectPermissionScheme: JiraAPI {}
-    enum ProjectPriorityScheme: JiraAPI {}
-    enum ProjectSecurityLevel: JiraAPI {}
-    enum ProjectType: JiraAPI {}
-    enum ProjectCategory: JiraAPI {}
-    enum ProjectValidate: JiraAPI {}
-    enum Reindex: JiraAPI {}
-    enum ReindexRequest: JiraAPI {}
-    enum resolution: JiraAPI {}
-    enum Role: JiraAPI {}
-    enum Screens: JiraAPI {}
-    enum Search: JiraAPI {}
-    enum SecurityLevel: JiraAPI {}
-    enum ServerInfo: JiraAPI {}
-    enum Settings: JiraAPI {}
-    enum Status: JiraAPI {}
-    enum StatusCategory: JiraAPI {}
-    enum UniversalAvatar: JiraAPI {}
-    enum Upgrade: JiraAPI {}
-    enum User: JiraAPI {}
-    enum Properties: JiraAPI {}
-    enum Version: JiraAPI {}
-    enum Workflow: JiraAPI {}
-    enum WorkflowScheme: JiraAPI {}
-    enum WorkLog: JiraAPI {}
-    enum Session: JiraAPI {}
-    enum WebSudo: JiraAPI {}
+    enum Attachment:            APICategory & JiraAPI {}
+    enum ApplicationProperties: APICategory & JiraAPI {}
+    enum ApplicationRole:       APICategory & JiraAPI {}
+    enum Auditing:              APICategory & JiraAPI {}
+    enum Avatar:                APICategory & JiraAPI {}
+    enum Configuration:         APICategory & JiraAPI {}
+    enum Comment:               APICategory & JiraAPI {}
+    enum Component:             APICategory & JiraAPI {}
+    enum CustomFieldOption:     APICategory & JiraAPI {}
+    enum Dashboard:             APICategory & JiraAPI {}
+    enum Field:                 APICategory & JiraAPI {}
+    enum Filter:                APICategory & JiraAPI {}
+    enum Group:                 APICategory & JiraAPI {}
+    enum GroupUserPicker:       APICategory & JiraAPI {}
+    enum Issue:                 APICategory & JiraAPI {}
+    enum IssueLink:             APICategory & JiraAPI {}
+    enum IssueLinkType:         APICategory & JiraAPI {}
+    enum IssueSecuritySchemes:  APICategory & JiraAPI {}
+    enum IssueType:             APICategory & JiraAPI {}
+    enum JQL:                   APICategory & JiraAPI {}
+    enum MyPermissions:         APICategory & JiraAPI {}
+    enum MyPreferences:         APICategory & JiraAPI {}
+    enum Myself:                APICategory & JiraAPI {}
+    enum NotificationScheme:    APICategory & JiraAPI {}
+    enum Permissions:           APICategory & JiraAPI {}
+    enum PermissionScheme:      APICategory & JiraAPI {}
+    enum Priority:              APICategory & JiraAPI {}
+    enum Project:               APICategory & JiraAPI {}
+    enum ProjectCategory:       APICategory & JiraAPI {}
+    enum ProjectValidate:       APICategory & JiraAPI {}
+    enum Resolution:            APICategory & JiraAPI {}
+    enum Role:                  APICategory & JiraAPI {}
+    enum Screens:               APICategory & JiraAPI {}
+    enum Search:                APICategory & JiraAPI {}
+    enum SecurityLevel:         APICategory & JiraAPI {}
+    enum ServerInfo:            APICategory & JiraAPI {}
+    enum Settings:              APICategory & JiraAPI {}
+    enum Status:                APICategory & JiraAPI {}
+    enum StatusCategory:        APICategory & JiraAPI {}
+    enum UniversalAvatar:       APICategory & JiraAPI {}
+    enum User:                  APICategory & JiraAPI {}
+    enum Version:               APICategory & JiraAPI {}
+    enum Workflow:              APICategory & JiraAPI {}
+    enum WorkflowScheme:        APICategory & JiraAPI {}
+    enum WorkLog:               APICategory & JiraAPI {}
+}
+
+public extension Atlassian.Jira where Infrastructure == Server {
+    enum Cluster:           APICategory & JiraAPI {}
+    enum ClusterZdu:        APICategory & JiraAPI {}
+    enum CustomFields:      APICategory & JiraAPI {}
+    enum Summary:           APICategory & JiraAPI {}
+    enum IssueTypeScheme:   APICategory & JiraAPI {}
+    enum LicenseValidator:  APICategory & JiraAPI {}
+    enum Jmx:               APICategory & JiraAPI {}
+    enum Password:          APICategory & JiraAPI {}
+    enum PrioritySchemes:   APICategory & JiraAPI {}
+    enum Reindex:           APICategory & JiraAPI {}
+    enum Upgrade:           APICategory & JiraAPI {}
+    enum Session:           APICategory & JiraAPI {}
+    enum WebSudo:           APICategory & JiraAPI {}
+}
+
+public extension Atlassian.Jira where Infrastructure == Cloud {
+    enum Expression:    APICategory & JiraAPI {}
+    enum Task:          APICategory & JiraAPI {}
+    enum WebHook:       APICategory & JiraAPI {}
 }
