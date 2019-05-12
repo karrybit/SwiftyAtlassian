@@ -16,5 +16,22 @@ public extension Atlassian {
 
 public protocol ConfluenceAPI {}
 public extension Atlassian.Confluence {
+    enum AccessMode: ConfluenceAPI {}
+    enum Audit: ConfluenceAPI {}
     enum Content: ConfluenceAPI {}
+    enum ContentChild: ConfluenceAPI {}
+    enum ContentChildAttachment: ConfluenceAPI {}
+    enum ContentDescendant: ConfluenceAPI {}
+    enum ContentLabel: ConfluenceAPI {}
+    enum ContentProperty: ConfluenceAPI {}
+    enum ContentRestriction: ConfluenceAPI {}
+    enum ContentBlueprint: ConfluenceAPI {}
+    enum ContentBodyConvert: ConfluenceAPI {}
+    enum Group: ConfluenceAPI {}
+    enum LongTask: ConfluenceAPI {}
+    enum Search: ConfluenceAPI {}
+    enum Space: ConfluenceAPI {}
+    enum SpaceProperty: ConfluenceAPI {}
+    enum User: ConfluenceAPI {}
+    enum UserWatch: ConfluenceAPI {}
 }
