@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Config
 
 public protocol ServiceProtocol {
     var config: Config { get }

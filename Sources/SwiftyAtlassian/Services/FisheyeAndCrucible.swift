@@ -6,14 +6,13 @@
 //
 
 import Foundation
+import Config
+import AtlassianProtocol
+import FisheyeAndCrucible
 
 public extension Atlassian where Infrastructure == Server {
-    enum FisheyeAndCrucibleAPICategory {}
     struct FisheyeAndCrucible<Category: APICategory & FisheyeAndCrucibleAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
-
-public protocol FisheyeAndCrucibleAPI {}
-public extension Atlassian.FisheyeAndCrucibleAPICategory {}
