@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Cloud {
+    enum UserManagementAPICategory {}
     struct UserManagement<Category: APICategory & UserManagementAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
@@ -15,4 +16,4 @@ public extension Atlassian where Infrastructure == Cloud {
 }
 
 public protocol UserManagementAPI {}
-public extension Atlassian.UserManagement {}
+public extension Atlassian.UserManagementAPICategory {}

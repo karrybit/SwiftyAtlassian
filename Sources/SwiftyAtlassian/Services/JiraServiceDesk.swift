@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Atlassian {
+    enum JiraServiceDeskAPICategory {}
     struct JiraServiceDesk<Category: APICategory & JiraServiceDeskAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
@@ -15,7 +16,7 @@ public extension Atlassian {
 }
 
 public protocol JiraServiceDeskAPI {}
-public extension Atlassian.JiraServiceDesk {
+public extension Atlassian.JiraServiceDeskAPICategory {
     enum Customer: APICategory & JiraServiceDeskAPI {}
     enum Info: APICategory & JiraServiceDeskAPI {}
     enum Organization: APICategory & JiraServiceDeskAPI {}
@@ -24,7 +25,7 @@ public extension Atlassian.JiraServiceDesk {
     enum ServiceDesk: APICategory & JiraServiceDeskAPI {}
 }
 
-public extension Atlassian.JiraServiceDesk where Infrastructure == Cloud {
+public extension Atlassian.JiraServiceDeskAPICategory where Infrastructure == Cloud {
     enum Knowledgebase: APICategory & JiraServiceDeskAPI {}
     enum RequestType: APICategory & JiraServiceDeskAPI {}
 }

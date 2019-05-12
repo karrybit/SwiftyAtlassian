@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Cloud {
+    enum OpsgenieAPICategory {}
     struct Opsgenie<Category: APICategory & OpsgenieAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
@@ -15,4 +16,4 @@ public extension Atlassian where Infrastructure == Cloud {
 }
 
 public protocol OpsgenieAPI {}
-public extension Atlassian.Opsgenie {}
+public extension Atlassian.OpsgenieAPICategory {}

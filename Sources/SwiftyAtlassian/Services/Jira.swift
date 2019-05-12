@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Atlassian {
+    enum JiraAPICategory {}
     struct Jira<Category: APICategory & JiraAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
@@ -15,7 +16,7 @@ public extension Atlassian {
 }
 
 public protocol JiraAPI {}
-public extension Atlassian.Jira {
+public extension Atlassian.JiraAPICategory {
     enum Attachment:            APICategory & JiraAPI {}
     enum ApplicationProperties: APICategory & JiraAPI {}
     enum ApplicationRole:       APICategory & JiraAPI {}
@@ -63,7 +64,7 @@ public extension Atlassian.Jira {
     enum WorkLog:               APICategory & JiraAPI {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Server {
+public extension Atlassian where Infrastructure == Server {
     enum Cluster:           APICategory & JiraAPI {}
     enum ClusterZdu:        APICategory & JiraAPI {}
     enum CustomFields:      APICategory & JiraAPI {}
@@ -79,7 +80,7 @@ public extension Atlassian.Jira where Infrastructure == Server {
     enum WebSudo:           APICategory & JiraAPI {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Cloud {
+public extension Atlassian.JiraAPICategory where Infrastructure == Cloud {
     enum Expression:    APICategory & JiraAPI {}
     enum Task:          APICategory & JiraAPI {}
     enum WebHook:       APICategory & JiraAPI {}

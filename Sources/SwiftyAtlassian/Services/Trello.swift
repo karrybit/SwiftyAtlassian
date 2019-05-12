@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Cloud {
+    enum TrelloAPICategory {}
     struct Trello<Category: APICategory & TrelloAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
@@ -15,4 +16,4 @@ public extension Atlassian where Infrastructure == Cloud {
 }
 
 public protocol TrelloAPI {}
-public extension Atlassian.Trello {}
+public extension Atlassian.TrelloAPICategory {}
