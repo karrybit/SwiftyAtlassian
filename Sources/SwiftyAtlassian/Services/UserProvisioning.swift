@@ -8,10 +8,11 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Cloud {
-    struct UserProvisioning<Category: UserProvisioningAPI>: ServiceProtocol {
+    struct UserProvisioning<Category: APICategory & UserProvisioningAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol UserProvisioningAPI: APICategory {}
+public protocol UserProvisioningAPI {}
+public extension Atlassian.UserProvisioning {}

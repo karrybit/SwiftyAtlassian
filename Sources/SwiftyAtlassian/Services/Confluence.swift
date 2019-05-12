@@ -8,11 +8,13 @@
 import Foundation
 
 public extension Atlassian {
-    struct Confluence<Category: ConfluenceAPI>: ServiceProtocol {
+    struct Confluence<Category: APICategory & ConfluenceAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol ConfluenceAPI: APICategory {}
-public enum Content: ConfluenceAPI {}
+public protocol ConfluenceAPI {}
+public extension Atlassian.Confluence {
+    enum Content: ConfluenceAPI {}
+}

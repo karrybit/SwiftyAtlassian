@@ -8,10 +8,11 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Server {
-    struct Crowd<Category: CrowdAPI>: ServiceProtocol {
+    struct Crowd<Category: APICategory & CrowdAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol CrowdAPI: APICategory {}
+public protocol CrowdAPI {}
+public extension Atlassian.Crowd {}

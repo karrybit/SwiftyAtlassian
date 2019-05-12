@@ -8,10 +8,11 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Server {
-    struct Bamboo<Category: BambooAPI>: ServiceProtocol {
+    struct Bamboo<Category: APICategory & BambooAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol BambooAPI: APICategory {}
+public protocol BambooAPI {}
+public extension Atlassian.Bamboo {}

@@ -8,10 +8,11 @@
 import Foundation
 
 public extension Atlassian where Infrastructure == Cloud {
-    struct StatusPage<Category: StatusPageAPI>: ServiceProtocol {
+    struct StatusPage<Category: APICategory & StatusPageAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol StatusPageAPI: APICategory {}
+public protocol StatusPageAPI {}
+public extension Atlassian.StatusPage {}

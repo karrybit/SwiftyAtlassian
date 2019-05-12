@@ -8,10 +8,11 @@
 import Foundation
 
 public extension Atlassian {
-    struct JiraServiceDesk<Category: JiraServiceDeskAPI>: ServiceProtocol {
+    struct JiraServiceDesk<Category: APICategory & JiraServiceDeskAPI>: ServiceProtocol {
         public let config: Config
         public init(withAuth config: Config) { self.config = config }
     }
 }
 
-public protocol JiraServiceDeskAPI: APICategory {}
+public protocol JiraServiceDeskAPI {}
+public extension Atlassian.JiraServiceDesk {}
