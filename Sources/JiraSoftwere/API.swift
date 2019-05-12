@@ -11,16 +11,16 @@ import AtlassianProtocol
 public protocol JiraSoftwereAPI {}
 
 // both infrastructure
-enum Backlog:           APICategory & JiraSoftwereAPI {}
-enum Board:             APICategory & JiraSoftwereAPI {}
-enum Epic:              APICategory & JiraSoftwereAPI {}
-enum Issue:             APICategory & JiraSoftwereAPI {}
-enum Sprint:            APICategory & JiraSoftwereAPI {}
+public enum Backlog:           APICategory & JiraSoftwereAPI {}
+public enum Board:             APICategory & JiraSoftwereAPI {}
+public enum Epic:              APICategory & JiraSoftwereAPI {}
+public enum Issue:             APICategory & JiraSoftwereAPI {}
+public enum Sprint:            APICategory & JiraSoftwereAPI {}
 
 // only cloud
-enum Bulk: APICategory & JiraSoftwereAPI {}
-enum BulkRepository: APICategory & JiraSoftwereAPI {}
-enum BulkByProperties: APICategory & JiraSoftwereAPI {}
-enum ExistsByProperties: APICategory & JiraSoftwereAPI {}
-enum Flag: APICategory & JiraSoftwereAPI {}
-enum Pipelines: APICategory & JiraSoftwereAPI {}
+public enum Bulk: APICategory & JiraSoftwereAPI {}
+public enum BulkRepository: APICategory & JiraSoftwereAPI {}
+public enum BulkByProperties: APICategory & JiraSoftwereAPI {}
+public enum ExistsByProperties: APICategory & JiraSoftwereAPI {}
+public enum Flag: APICategory & JiraSoftwereAPI {}
+public enum Pipelines: APICategory & JiraSoftwereAPI {}

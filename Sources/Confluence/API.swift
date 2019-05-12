@@ -11,18 +11,18 @@ import AtlassianProtocol
 public protocol ConfluenceAPI {}
 
 // both infrastructure
-enum AccessMode:    APICategory & ConfluenceAPI {}
-enum Audit:         APICategory & ConfluenceAPI {}
-enum Content:       APICategory & ConfluenceAPI {}
-enum ContentBody:   APICategory & ConfluenceAPI {}
-enum Group:         APICategory & ConfluenceAPI {}
-enum LongTask:      APICategory & ConfluenceAPI {}
-enum Search:        APICategory & ConfluenceAPI {}
-enum Space:         APICategory & ConfluenceAPI {}
-enum User:          APICategory & ConfluenceAPI {}
+public enum AccessMode:    APICategory & ConfluenceAPI {}
+public enum Audit:         APICategory & ConfluenceAPI {}
+public enum Content:       APICategory & ConfluenceAPI {}
+public enum ContentBody:   APICategory & ConfluenceAPI {}
+public enum Group:         APICategory & ConfluenceAPI {}
+public enum LongTask:      APICategory & ConfluenceAPI {}
+public enum Search:        APICategory & ConfluenceAPI {}
+public enum Space:         APICategory & ConfluenceAPI {}
+public enum User:          APICategory & ConfluenceAPI {}
 
 // cloud only
-enum Experimental:  APICategory & ConfluenceAPI {}
-enum Relation:      APICategory & ConfluenceAPI {}
-enum Settings:      APICategory & ConfluenceAPI {}
-enum Template:      APICategory & ConfluenceAPI {}
+public enum Experimental:  APICategory & ConfluenceAPI {}
+public enum Relation:      APICategory & ConfluenceAPI {}
+public enum Settings:      APICategory & ConfluenceAPI {}
+public enum Template:      APICategory & ConfluenceAPI {}

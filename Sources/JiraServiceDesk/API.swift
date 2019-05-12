@@ -11,13 +11,13 @@ import AtlassianProtocol
 public protocol JiraServiceDeskAPI {}
 
 // both infrastructure
-enum Customer: APICategory & JiraServiceDeskAPI {}
-enum Info: APICategory & JiraServiceDeskAPI {}
-enum Organization: APICategory & JiraServiceDeskAPI {}
-enum Queues: APICategory & JiraServiceDeskAPI {}
-enum Request: APICategory & JiraServiceDeskAPI {}
-enum ServiceDesk: APICategory & JiraServiceDeskAPI {}
+public enum Customer: APICategory & JiraServiceDeskAPI {}
+public enum Info: APICategory & JiraServiceDeskAPI {}
+public enum Organization: APICategory & JiraServiceDeskAPI {}
+public enum Queues: APICategory & JiraServiceDeskAPI {}
+public enum Request: APICategory & JiraServiceDeskAPI {}
+public enum ServiceDesk: APICategory & JiraServiceDeskAPI {}
 
 // only cloud
-enum Knowledgebase: APICategory & JiraServiceDeskAPI {}
-enum RequestType: APICategory & JiraServiceDeskAPI {}
+public enum Knowledgebase: APICategory & JiraServiceDeskAPI {}
+public enum RequestType: APICategory & JiraServiceDeskAPI {}
