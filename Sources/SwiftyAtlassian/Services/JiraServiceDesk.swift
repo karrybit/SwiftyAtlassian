@@ -15,4 +15,16 @@ public extension Atlassian {
 }
 
 public protocol JiraServiceDeskAPI {}
-public extension Atlassian.JiraServiceDesk {}
+public extension Atlassian.JiraServiceDesk {
+    enum Customer: APICategory & JiraServiceDeskAPI {}
+    enum Info: APICategory & JiraServiceDeskAPI {}
+    enum Organization: APICategory & JiraServiceDeskAPI {}
+    enum Queues: APICategory & JiraServiceDeskAPI {}
+    enum Request: APICategory & JiraServiceDeskAPI {}
+    enum ServiceDesk: APICategory & JiraServiceDeskAPI {}
+}
+
+public extension Atlassian.JiraServiceDesk where Infrastructure == Cloud {
+    enum Knowledgebase: APICategory & JiraServiceDeskAPI {}
+    enum RequestType: APICategory & JiraServiceDeskAPI {}
+}

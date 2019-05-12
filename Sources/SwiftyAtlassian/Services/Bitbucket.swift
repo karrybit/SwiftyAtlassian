@@ -16,3 +16,5 @@ public extension Atlassian {
 
 public protocol BitbucketAPI {}
 public extension Atlassian.Bitbucket {}
+public extension Atlassian.Bitbucket where Infrastructure == Server {}
+public extension Atlassian.Bitbucket where Infrastructure == Cloud {}

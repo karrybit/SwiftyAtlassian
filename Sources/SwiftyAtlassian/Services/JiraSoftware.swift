@@ -18,13 +18,16 @@ public protocol JiraSoftwereAPI {}
 public extension Atlassian.JiraSoftware {
     enum Backlog:           APICategory & JiraSoftwereAPI {}
     enum Board:             APICategory & JiraSoftwereAPI {}
-    enum BoardEpic:         APICategory & JiraSoftwereAPI {}
-    enum BoardProject:      APICategory & JiraSoftwereAPI {}
-    enum BoardProperties:   APICategory & JiraSoftwereAPI {}
-    enum BoardSprint:       APICategory & JiraSoftwereAPI {}
-    enum BoardVersion:      APICategory & JiraSoftwereAPI {}
     enum Epic:              APICategory & JiraSoftwereAPI {}
     enum Issue:             APICategory & JiraSoftwereAPI {}
     enum Sprint:            APICategory & JiraSoftwereAPI {}
-    enum SprintProperties:  APICategory & JiraSoftwereAPI {}
+}
+
+public extension Atlassian.JiraSoftware where Infrastructure == Cloud {
+    enum Bulk: APICategory & JiraSoftwereAPI {}
+    enum BulkRepository: APICategory & JiraSoftwereAPI {}
+    enum BulkByProperties: APICategory & JiraSoftwereAPI {}
+    enum ExistsByProperties: APICategory & JiraSoftwereAPI {}
+    enum Flag: APICategory & JiraSoftwereAPI {}
+    enum Pipelines: APICategory & JiraSoftwereAPI {}
 }
