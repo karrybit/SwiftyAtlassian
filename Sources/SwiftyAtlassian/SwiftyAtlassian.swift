@@ -14,77 +14,24 @@ public enum Cloud: InfrastructureProtocol {}
 public struct Atlassian<Infrastructure: InfrastructureProtocol> {}
 
 public extension Atlassian {
-    struct Bitbucket: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct Confluence: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct Jira: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct JiraServiceDesk: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct JiraSoftware: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
+    struct Bitbucket: ServiceProtocol {}
+    struct Confluence: ServiceProtocol {}
+    struct Jira: ServiceProtocol {}
+    struct JiraServiceDesk: ServiceProtocol {}
+    struct JiraSoftware: ServiceProtocol {}
 }
 
 public extension Atlassian where Infrastructure == Server {
-    struct Bamboo: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct Crowd: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct FisheyeAndCrucible: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
+    struct Bamboo: ServiceProtocol {}
+    struct Crowd: ServiceProtocol {}
+    struct FisheyeAndCrucible: ServiceProtocol {}
 }
 
 public extension Atlassian where Infrastructure == Cloud {
-    struct Opsgenie: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct Organizations: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct StatusPage: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct Trello: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct UserManagement: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    
-    struct UserProvisioning: ServiceProtocol {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
+    struct Opsgenie: ServiceProtocol {}
+    struct Organizations: ServiceProtocol {}
+    struct StatusPage: ServiceProtocol {}
+    struct Trello: ServiceProtocol {}
+    struct UserManagement: ServiceProtocol {}
+    struct UserProvisioning: ServiceProtocol {}
 }

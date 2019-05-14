@@ -10,71 +10,254 @@ import Foundation
 public protocol JiraAPI {}
 
 public extension Atlassian.Jira {
-    struct Attachment:            APICategory & JiraAPI {}
-    struct ApplicationProperties: APICategory & JiraAPI {}
-    struct ApplicationRole:       APICategory & JiraAPI {}
-    struct Auditing:              APICategory & JiraAPI {}
-    struct Avatar:                APICategory & JiraAPI {}
-    struct Configuration:         APICategory & JiraAPI {}
-    struct Comment:               APICategory & JiraAPI {}
-    struct Component:             APICategory & JiraAPI {}
-    struct CustomFieldOption:     APICategory & JiraAPI {}
-    struct Dashboard:             APICategory & JiraAPI {}
-    struct Field:                 APICategory & JiraAPI {}
-    struct Filter:                APICategory & JiraAPI {}
-    struct Group:                 APICategory & JiraAPI {}
-    struct GroupUserPicker:       APICategory & JiraAPI {}
-    struct Issue:                 APICategory & JiraAPI {}
-    struct IssueLink:             APICategory & JiraAPI {}
-    struct IssueLinkType:         APICategory & JiraAPI {}
-    struct IssueSecuritySchemes:  APICategory & JiraAPI {}
-    struct IssueType:             APICategory & JiraAPI {}
-    struct JQL:                   APICategory & JiraAPI {}
-    struct MyPermissions:         APICategory & JiraAPI {}
-    struct MyPreferences:         APICategory & JiraAPI {}
-    struct Myself:                APICategory & JiraAPI {}
-    struct NotificationScheme:    APICategory & JiraAPI {}
-    struct Permissions:           APICategory & JiraAPI {}
-    struct PermissionScheme:      APICategory & JiraAPI {}
-    struct Priority:              APICategory & JiraAPI {}
-    struct Project:               APICategory & JiraAPI {}
-    struct ProjectCategory:       APICategory & JiraAPI {}
-    struct ProjectValidate:       APICategory & JiraAPI {}
-    struct Resolution:            APICategory & JiraAPI {}
-    struct Role:                  APICategory & JiraAPI {}
-    struct Screens:               APICategory & JiraAPI {}
-    struct Search:                APICategory & JiraAPI {}
-    struct SecurityLevel:         APICategory & JiraAPI {}
-    struct ServerInfo:            APICategory & JiraAPI {}
-    struct Settings:              APICategory & JiraAPI {}
-    struct Status:                APICategory & JiraAPI {}
-    struct StatusCategory:        APICategory & JiraAPI {}
-    struct UniversalAvatar:       APICategory & JiraAPI {}
-    struct User:                  APICategory & JiraAPI {}
-    struct Version:               APICategory & JiraAPI {}
-    struct Workflow:              APICategory & JiraAPI {}
-    struct WorkflowScheme:        APICategory & JiraAPI {}
-    struct WorkLog:               APICategory & JiraAPI {}
+    struct Attachment: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ApplicationProperties: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ApplicationRole: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Auditing: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Avatar: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Configuration: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Comment: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Component: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct CustomFieldOption: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Dashboard: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Field: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Filter: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Group: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct GroupUserPicker: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Issue: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct IssueLink: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct IssueLinkType: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct IssueSecuritySchemes:  APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct IssueType: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct JQL: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct MyPermissions: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct MyPreferences: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Myself: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct NotificationScheme: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Permissions: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct PermissionScheme: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Priority: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Project: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ProjectCategory: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ProjectValidate: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Resolution: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Role: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Screens: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Search: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct SecurityLevel: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ServerInfo: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Settings: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Status: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct StatusCategory: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct UniversalAvatar: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct User: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Version: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Workflow: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct WorkflowScheme: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct WorkLog: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
 }
 
 public extension Atlassian.Jira where Infrastructure == Server {
-    struct Cluster:           APICategory & JiraAPI {}
-    struct ClusterZdu:        APICategory & JiraAPI {}
-    struct CustomFields:      APICategory & JiraAPI {}
-    struct Summary:           APICategory & JiraAPI {}
-    struct IssueTypeScheme:   APICategory & JiraAPI {}
-    struct LicenseValidator:  APICategory & JiraAPI {}
-    struct Jmx:               APICategory & JiraAPI {}
-    struct Password:          APICategory & JiraAPI {}
-    struct PrioritySchemes:   APICategory & JiraAPI {}
-    struct Reindex:           APICategory & JiraAPI {}
-    struct Upgrade:           APICategory & JiraAPI {}
-    struct Session:           APICategory & JiraAPI {}
-    struct WebSudo:           APICategory & JiraAPI {}
+    struct Cluster: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ClusterZdu: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct CustomFields: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Summary: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct IssueTypeScheme: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct LicenseValidator: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct JMX: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Password: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct PrioritySchemes: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Reindex: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Upgrade: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Session: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct WebSudo: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
 }
 
 public extension Atlassian.Jira where Infrastructure == Cloud {
-    struct Expression:    APICategory & JiraAPI {}
-    struct Task:          APICategory & JiraAPI {}
-    struct WebHook:       APICategory & JiraAPI {}
+    struct Expression: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Task: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct WebHook: APICategory & JiraAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
 }

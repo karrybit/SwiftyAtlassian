@@ -10,15 +10,40 @@ import Foundation
 public protocol JiraServiceDeskAPI {}
 
 public extension Atlassian.JiraServiceDesk {
-    struct Customer:      APICategory & JiraServiceDeskAPI {}
-    struct Info:          APICategory & JiraServiceDeskAPI {}
-    struct Organization:  APICategory & JiraServiceDeskAPI {}
-    struct Queues:        APICategory & JiraServiceDeskAPI {}
-    struct Request:       APICategory & JiraServiceDeskAPI {}
-    struct ServiceDesk:   APICategory & JiraServiceDeskAPI {}
+    struct Customer: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Info: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Organization: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Queues: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct Request: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct ServiceDesk: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
 }
 
+
 public extension Atlassian.JiraServiceDesk where Infrastructure == Cloud {
-    struct Knowledgebase: APICategory & JiraServiceDeskAPI {}
-    struct RequestType:   APICategory & JiraServiceDeskAPI {}
+    struct Knowledgebase: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
+    struct RequestType: APICategory & JiraServiceDeskAPI {
+        public let config: Config
+        public init(withAuth config: Config) { self.config = config }
+    }
 }

@@ -7,7 +7,4 @@
 
 import Foundation
 
-public protocol ServiceProtocol {
-    var config: Config { get }
-    init(withAuth config: Config)
-}
+public protocol ServiceProtocol {}
