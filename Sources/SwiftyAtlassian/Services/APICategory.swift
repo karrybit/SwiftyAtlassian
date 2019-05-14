@@ -7,10 +7,9 @@
 
 import Foundation
 
-public protocol APICategory {
-    var config: Config { get }
-    var header: [String: String] { get }
-    init(withAuth config: Config)
+public class APICategory {
+    public let config: Config
+    public init(withAuth config: Config) { self.config = config }
 }
 
 public extension APICategory {

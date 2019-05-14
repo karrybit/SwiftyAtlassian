@@ -10,40 +10,16 @@ import Foundation
 public protocol JiraServiceDeskAPI {}
 
 public extension Atlassian.JiraServiceDesk {
-    struct Customer: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct Info: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct Organization: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct Queues: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct Request: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct ServiceDesk: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
+    class Customer: APICategory, JiraServiceDeskAPI {}
+    class Info: APICategory, JiraServiceDeskAPI {}
+    class Organization: APICategory, JiraServiceDeskAPI {}
+    class Queues: APICategory, JiraServiceDeskAPI {}
+    class Request: APICategory, JiraServiceDeskAPI {}
+    class ServiceDesk: APICategory, JiraServiceDeskAPI {}
 }
 
 
 public extension Atlassian.JiraServiceDesk where Infrastructure == Cloud {
-    struct Knowledgebase: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
-    struct RequestType: APICategory & JiraServiceDeskAPI {
-        public let config: Config
-        public init(withAuth config: Config) { self.config = config }
-    }
+    class Knowledgebase: APICategory, JiraServiceDeskAPI {}
+    class RequestType: APICategory, JiraServiceDeskAPI {}
 }
