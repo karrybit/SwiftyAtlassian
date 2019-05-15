@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class APICategory {
+open class APICategory {
     public let config: Config
     public init(withAuth config: Config) { self.config = config }
 }
