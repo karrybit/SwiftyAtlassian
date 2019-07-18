@@ -7,9 +7,10 @@
 
 import Foundation
 
-public struct Config {
+public struct AuthConfig {
     public let name: String
     public let password: String
+
     public init(name: String, password: String) {
         self.name = name
         self.password = password

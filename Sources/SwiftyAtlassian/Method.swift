@@ -7,7 +7,6 @@
 
 import Foundation
 
-public enum SwiftyAtlassianMethod: String {
-    case get = "GET"
-    case post = "POST"
+public enum SwiftyAtlassianMethod {
+    case get, post
 }
