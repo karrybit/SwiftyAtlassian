@@ -1,5 +1,5 @@
 //
-//  APICategory.swift
+//  API.swift
 //  SwiftyAtlassian
 //
 //  Created by Takumi Karibe on 2019/05/12.

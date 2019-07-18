@@ -10,16 +10,16 @@ import Foundation
 public protocol JiraServiceDeskAPI {}
 
 public extension Atlassian.JiraServiceDesk {
-    class Customer: APICategory, JiraServiceDeskAPI {}
-    class Info: APICategory, JiraServiceDeskAPI {}
-    class Organization: APICategory, JiraServiceDeskAPI {}
-    class Queues: APICategory, JiraServiceDeskAPI {}
-    class Request: APICategory, JiraServiceDeskAPI {}
-    class ServiceDesk: APICategory, JiraServiceDeskAPI {}
+    class Customer: API, JiraServiceDeskAPI {}
+    class Info: API, JiraServiceDeskAPI {}
+    class Organization: API, JiraServiceDeskAPI {}
+    class Queues: API, JiraServiceDeskAPI {}
+    class Request: API, JiraServiceDeskAPI {}
+    class ServiceDesk: API, JiraServiceDeskAPI {}
 }
 
 
 public extension Atlassian.JiraServiceDesk where Infrastructure == Cloud {
-    class Knowledgebase: APICategory, JiraServiceDeskAPI {}
-    class RequestType: APICategory, JiraServiceDeskAPI {}
+    class Knowledgebase: API, JiraServiceDeskAPI {}
+    class RequestType: API, JiraServiceDeskAPI {}
 }
