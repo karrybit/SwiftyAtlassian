@@ -7,12 +7,12 @@
 
 import Foundation
 
-open class API {
+open class API: Network {
     public let config: AuthConfig
     public init(withAuth config: AuthConfig) { self.config = config }
 }
 
-extension API: Network {
+public extension API {
     
     typealias Body = [String: Any]
 
@@ -35,4 +35,5 @@ extension API: Network {
     func post(url: URL, body: Body) -> Result<(), Error> {
         return network(url: url, method: .post, header: header, body: body)
     }
+
 }
