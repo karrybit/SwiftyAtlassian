@@ -7,4 +7,12 @@
 
 import Foundation
 
-public protocol ServiceProtocol {}
+public protocol ServiceProtocol {
+    var servicePath: String { get }
+}
+
+public extension ServiceProtocol {
+    var servicePath: String {
+        return ""
+    }
+}
