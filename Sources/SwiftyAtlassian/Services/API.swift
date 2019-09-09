@@ -22,12 +22,13 @@ public extension API {
     
     typealias Body = [String: Any]
 
-    var header: [String: String] {
+    var header: [String: String]? {
         var header: [String: String] = [:]
         /// Basic authentication
         header["Content-Type"] = "application/json"
         guard let credentialData = "\(config.name):\(config.password)".data(using: String.Encoding.utf8) else {
-            fatalError("⛔️ failed to generate by user credential data.")
+            //fatalError("⛔️ failed to generate by user credential data.")
+            return nil
         }
         let credential = credentialData.base64EncodedString(options: [])
         header["Authorization"] = "Basic \(credential)"
