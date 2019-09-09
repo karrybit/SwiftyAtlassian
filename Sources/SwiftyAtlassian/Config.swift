@@ -20,6 +20,6 @@ public struct Config {
         
         self.name = name
         self.password = password
-        self.baseUrlString = baseUrlString
+        self.baseUrlString = baseUrlString.hasSuffix("/") ? baseUrlString : baseUrlString + "/"
     }
 }
