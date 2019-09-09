@@ -8,8 +8,14 @@
 import Foundation
 
 open class API: Network {
-    public let config: AuthConfig
-    public init(withAuth config: AuthConfig) { self.config = config }
+    public let config: Config
+    public init?() {
+        /// FIXME: yamlよむ
+        guard let config = Config(name: "a", password: "a", baseUrlString: "a") else {
+            return nil
+        }
+        self.config = config
+    }
 }
 
 public extension API {

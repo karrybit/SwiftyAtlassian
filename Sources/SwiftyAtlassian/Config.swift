@@ -7,12 +7,19 @@
 
 import Foundation
 
-public struct AuthConfig {
+public struct Config {
     public let name: String
     public let password: String
-
-    public init(name: String, password: String) {
+    public let baseUrlString: String
+    
+    public init?(name: String, password: String, baseUrlString: String) {
+        
+        guard !name.isEmpty, !password.isEmpty, !baseUrlString.isEmpty else {
+            return nil
+        }
+        
         self.name = name
         self.password = password
+        self.baseUrlString = baseUrlString
     }
 }

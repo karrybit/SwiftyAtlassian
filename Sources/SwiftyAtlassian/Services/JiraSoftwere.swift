@@ -10,6 +10,11 @@ import Foundation
 public protocol JiraSoftwereAPI {}
 
 public extension Atlassian.JiraSoftware {
+    
+    var servicePath: String {
+        return "rest/agile/latest/"
+    }
+    
     class Backlog: API, JiraSoftwereAPI {}
     class Board: API, JiraSoftwereAPI {}
     class Epic: API, JiraSoftwereAPI {}
