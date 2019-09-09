@@ -8,11 +8,11 @@
 import Foundation
 
 public protocol ServiceProtocol {
-    var servicePath: String { get }
+    static var servicePath: String { get }
 }
 
 public extension ServiceProtocol {
-    var servicePath: String {
+    static var servicePath: String {
         return ""
     }
 }

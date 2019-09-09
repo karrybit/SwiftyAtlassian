@@ -11,7 +11,7 @@ public protocol JiraSoftwereAPI {}
 
 public extension Atlassian.JiraSoftware {
     
-    var servicePath: String {
+    static var servicePath: String {
         return "rest/agile/latest/"
     }
     

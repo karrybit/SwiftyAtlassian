@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class API: Network {
+open class API: Network {    
     public let config: Config
     public init?() {
         /// FIXME: yamlよむ

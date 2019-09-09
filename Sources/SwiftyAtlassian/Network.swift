@@ -18,7 +18,14 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-public protocol Network: class {}
+public protocol Network: class {
+    var path: String { get }
+}
+public extension Network {
+    var path: String {
+        return ""
+    }
+}
 
 public extension Network {
     func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String], body: [String: Any]) -> Result<(), Error> {
