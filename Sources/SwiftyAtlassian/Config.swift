@@ -12,12 +12,7 @@ public struct Config {
     public let password: String
     public let baseUrlString: String
     
-    public init?(name: String, password: String, baseUrlString: String) {
-        
-        guard !name.isEmpty, !password.isEmpty, !baseUrlString.isEmpty else {
-            return nil
-        }
-        
+    public init(name: String, password: String, baseUrlString: String) {
         self.name = name
         self.password = password
         self.baseUrlString = baseUrlString.hasSuffix("/") ? baseUrlString : baseUrlString + "/"

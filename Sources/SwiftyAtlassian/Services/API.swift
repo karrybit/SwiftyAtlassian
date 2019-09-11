@@ -9,12 +9,8 @@ import Foundation
 
 open class API: Network {    
     public let config: Config
-    public init?() {
-        /// FIXME: yamlよむ
-        guard let config = Config(name: "a", password: "a", baseUrlString: "a") else {
-            return nil
-        }
-        self.config = config
+    public init() {
+        self.config = ConfigLoader.loadConfig()
     }
 }
 
