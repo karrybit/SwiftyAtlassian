@@ -21,7 +21,7 @@ private extension ConfigLoader {
     }
     
     static var userConfigFileName: String {
-        return "atlassian_config.yml"
+        return "config.yml"
     }
     
     static func fetchConfig() -> Config {
@@ -43,6 +43,7 @@ private extension ConfigLoader {
     
     static func fetchConfigFile(at filePath: String) -> Node {
         if !FileManager.default.fileExists(atPath: filePath) {
+            print(filePath)
             fatalError("⛔️ config is not exist")
         }
         
