@@ -35,11 +35,11 @@ public extension API {
         return header
     }
     
-    func get(url: URL, body: Body) -> Result<(), Error> {
+    func get(url: URL, body: Body) -> Result<Data, Error> {
         return network(url: url, method: .get, header: header, body: body)
     }
 
-    func post(url: URL, body: Body) -> Result<(), Error> {
+    func post(url: URL, body: Body) -> Result<Data, Error> {
         return network(url: url, method: .post, header: header, body: body)
     }
 

@@ -21,6 +21,7 @@ private extension SwiftyAtlassianMethod {
 public protocol Network: class {
     var path: String { get }
 }
+
 public extension Network {
     var path: String {
         return ""
@@ -28,7 +29,7 @@ public extension Network {
 }
 
 public extension Network {
-    func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String]?, body: [String: Any]) -> Result<(), Error> {
+    func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String]?, body: [String: Any]) -> Result<Data, Error> {
         
         guard let header = header else {
             /// TODO: ヘッダー生成エラーとしてふさわしいものを探す
@@ -42,6 +43,8 @@ public extension Network {
         request.httpMethod = method.string
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         
+        var result = Result<Data, Error>.failure(URLError(.timedOut))
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             defer { semaphore.signal() }
             
@@ -50,12 +53,15 @@ public extension Network {
                 return
             }
             
-            if (200...203).contains(statusCode) {
+            if (200...203).contains(statusCode), let data = data {
                 print("✅ \(String(describing: response))")
+                result = .success(data)
+                
             } else {
                 print("🚫 statusCode: \(statusCode)")
                 if let error = error {
                     print("🚨 error: \(error)")
+                    result = .failure(error)
                 }
             }
         }
@@ -63,6 +69,6 @@ public extension Network {
         task.resume()
         semaphore.wait()
         
-        return .success(())
+        return result
     }
 }
