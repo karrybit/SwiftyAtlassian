@@ -13,6 +13,6 @@ public protocol ServiceProtocol {
 
 public extension ServiceProtocol {
     static var servicePath: String {
-        return ""
+        return "rest/api/"
     }
 }

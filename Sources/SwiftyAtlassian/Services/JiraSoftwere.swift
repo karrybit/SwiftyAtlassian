@@ -10,7 +10,6 @@ import Foundation
 public protocol JiraSoftwereAPI {}
 
 public extension Atlassian.JiraSoftware {
-    
     static var servicePath: String {
         return "rest/agile/latest/"
     }
