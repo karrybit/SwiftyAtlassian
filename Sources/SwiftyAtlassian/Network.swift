@@ -26,9 +26,7 @@ public extension Network {
     var path: String {
         return ""
     }
-}
-
-public extension Network {
+    
     func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String]?, body: [String: Any]) -> Result<Data, Error> {
         
         guard let header = header else {
