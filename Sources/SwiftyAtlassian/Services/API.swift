@@ -34,5 +34,9 @@ public extension API {
     func put(url: URL, body: Body) -> Result<Data, Error> {
         return network(url: url, method: .put, header: header, body: body)
     }
+    
+    func delete(url: URL, body: Body) -> Result<Data, Error> {
+        return network(url: url, method: .delete, header: header, body: body)
+    }
 
 }

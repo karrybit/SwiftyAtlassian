@@ -9,6 +9,8 @@ private extension SwiftyAtlassianMethod {
             return "POST"
         case .put:
             return "PUT"
+        case .delete:
+            return "DELETE"
         }
     }
 }
