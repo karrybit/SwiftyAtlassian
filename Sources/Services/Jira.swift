@@ -1,11 +1,5 @@
-//
-//  Jira.swift
-//  SwiftyAtlassian
-//
-//  Created by Takumi Karibe on 2019/05/13.
-//
-
 import Foundation
+import SwiftyAtlassian
 
 public protocol JiraAPI {}
 

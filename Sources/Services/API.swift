@@ -1,13 +1,9 @@
-//
-//  API.swift
-//  SwiftyAtlassian
-//
-//  Created by Takumi Karibe on 2019/05/12.
-//
-
 import Foundation
+import SwiftyAtlassian
+import SANetwork
+import Config
 
-open class API: Network {    
+public class API: SANetwork {
     public let config: Config
     public init() {
         self.config = ConfigLoader.loadConfig()

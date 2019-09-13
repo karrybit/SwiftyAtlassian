@@ -1,10 +1,3 @@
-//
-//  Network.swift
-//  SwiftyAtlassian
-//
-//  Created by kota-otsu on 2019/07/18.
-//
-
 import Foundation
 
 private extension SwiftyAtlassianMethod {
@@ -18,11 +11,11 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-public protocol Network: class {
+public protocol SANetwork: class {
     var path: String { get }
 }
 
-public extension Network {
+public extension SANetwork {
     var path: String {
         return ""
     }

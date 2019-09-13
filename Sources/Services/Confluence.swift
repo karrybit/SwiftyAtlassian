@@ -1,11 +1,5 @@
-//
-//  Confluence.swift
-//  SwiftyAtlassian
-//
-//  Created by makanai5610 on 2019/09/12.
-//
-
 import Foundation
+import SwiftyAtlassian
 
 public protocol ConfluenceAPI {}
 

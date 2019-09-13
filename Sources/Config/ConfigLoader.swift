@@ -1,10 +1,3 @@
-//
-//  ConfigLoader.swift
-//  SwiftyAtlassian
-//
-//  Created by takumi-karibe on 2019/09/11.
-//
-
 import Foundation
 import Yams
 
