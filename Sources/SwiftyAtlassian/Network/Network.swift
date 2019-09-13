@@ -20,12 +20,7 @@ public extension Network {
         return ""
     }
     
-    func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String]?, body: [String: Any]) -> Result<Data, Error> {
-        
-        guard let header = header else {
-            /// TODO: ヘッダー生成エラーとしてふさわしいものを探す
-            return .failure(URLError(.cannotWriteToFile))
-        }
+    func network(url: URL, method: SwiftyAtlassianMethod, header: [String: String], body: [String: Any]) -> Result<Data, Error> {
         
         let semaphore = DispatchSemaphore(value: 0)
         var request = URLRequest(url: url)
