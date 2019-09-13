@@ -30,5 +30,9 @@ public extension API {
     func post(url: URL, body: Body) -> Result<Data, Error> {
         return network(url: url, method: .post, header: header, body: body)
     }
+    
+    func put(url: URL, body: Body) -> Result<Data, Error> {
+        return network(url: url, method: .put, header: header, body: body)
+    }
 
 }

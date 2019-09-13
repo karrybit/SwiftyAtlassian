@@ -1,5 +1,5 @@
 import Foundation
 
 public enum SwiftyAtlassianMethod {
-    case get, post
+    case get, post, put
 }

@@ -7,6 +7,8 @@ private extension SwiftyAtlassianMethod {
             return "GET"
         case .post:
             return "POST"
+        case .put:
+            return "PUT"
         }
     }
 }
