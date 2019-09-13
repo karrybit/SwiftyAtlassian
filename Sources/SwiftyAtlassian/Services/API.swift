@@ -1,9 +1,6 @@
 import Foundation
-import SwiftyAtlassian
-import SANetwork
-import Config
 
-public class API: SANetwork {
+public class API: Network {
     public let config: Config
     public init() {
         self.config = ConfigLoader.loadConfig()

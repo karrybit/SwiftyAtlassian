@@ -8,7 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "SwiftyAtlassian",
-            targets: ["SwiftyAtlassian", "SANetwork", "Services", "Config"]),
+            targets: ["SwiftyAtlassian"]),
     ],
     dependencies: [
         .package(url: "https://github.com/jpsim/Yams.git", from: "1.0.1"),
@@ -16,15 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftyAtlassian",
-            dependencies: []),
-        .target(
-            name: "SANetwork",
-            dependencies: []),
-        .target(
-            name: "Services",
-            dependencies: ["SwiftyAtlassian", "SANetwork", "Config"]),
-        .target(
-            name: "Config",
-            dependencies: ["Yams"]),
+            dependencies: ["Yams"]
+        ),
     ]
 )

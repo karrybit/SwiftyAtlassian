@@ -11,11 +11,11 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-public protocol SANetwork: class {
+public protocol Network: class {
     var path: String { get }
 }
 
-public extension SANetwork {
+public extension Network {
     var path: String {
         return ""
     }
