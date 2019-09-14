@@ -2,18 +2,18 @@ import Foundation
 
 public extension Model {
     struct Sprint: Decodable {
-        enum State: String, Decodable {
+        public enum State: String, Decodable {
             case future, closed
         }
-        let id: Int
-        let link: URL
-        let state: State
-        let name: String
-        let startDate: Date?
-        let endDate: Date?
-        let completeDate: Date?
-        let originBoardID: Int?
-        let goal: String?
+        public let id: Int
+        public let link: URL
+        public let state: State
+        public let name: String
+        public let startDate: Date?
+        public let endDate: Date?
+        public let completeDate: Date?
+        public let originBoardID: Int?
+        public let goal: String?
     }
 }
 

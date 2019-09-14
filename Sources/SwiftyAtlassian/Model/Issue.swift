@@ -2,11 +2,11 @@ import Foundation
 
 public extension Model {
     struct Issue: Decodable {
-        let expand: String
-        let id: Int
-        let link: URL
-        let key: String
-        let field: Model.Field
+        public let expand: String
+        public let id: Int
+        public let link: URL
+        public let key: String
+        public let field: Model.Field
     }
 }
 
@@ -20,16 +20,16 @@ public extension Model.Issue {
 
 public extension Model {
     struct Field: Decodable {
-        let isFlagged: Bool
-        let sprint: Model.Sprint
-        let closedSprints: [Model.Sprint]
-        let description: String
-        let project: Project
-        let comments: [Comment]
-        let epic: Epic
-        let workLogs: [WorkLog]
-        let updated: Int
-        let timeTracking: TimeTracking
+        public let isFlagged: Bool
+        public let sprint: Model.Sprint
+        public let closedSprints: [Model.Sprint]
+        public let description: String
+        public let project: Project
+        public let comments: [Comment]
+        public let epic: Epic
+        public let workLogs: [WorkLog]
+        public let updated: Int
+        public let timeTracking: TimeTracking
     }
 }
 
@@ -45,12 +45,12 @@ public extension Model.Field {
 
 public extension Model {
     struct Project: Decodable {
-        let link: URL
-        let id: Int
-        let key: String
-        let name: String
-        let avatarURLs: AvatarURL
-        let projectCategory: ProjectCategory
+        public let link: URL
+        public let id: Int
+        public let key: String
+        public let name: String
+        public let avatarURLs: AvatarURL
+        public let projectCategory: ProjectCategory
     }
 }
 
@@ -64,10 +64,10 @@ public extension Model.Project {
 
 public extension Model {
     struct AvatarURL: Decodable {
-        let xsmall: URL
-        let small: URL
-        let medium: URL
-        let large: URL
+        public let xsmall: URL
+        public let small: URL
+        public let medium: URL
+        public let large: URL
     }
 }
 
@@ -82,10 +82,10 @@ public extension Model.AvatarURL {
 
 public extension Model {
     struct ProjectCategory: Decodable {
-        let link: URL
-        let id: Int
-        let name: String
-        let description: String
+        public let link: URL
+        public let id: Int
+        public let name: String
+        public let description: String
     }
 }
 
@@ -98,14 +98,14 @@ public extension Model.ProjectCategory {
 
 public extension Model {
     struct Comment: Decodable {
-        let link: URL
-        let id: Int
-        let author: Author
-        let body: String
-        let updateAuthor: Author
-        let createdDate: Date
-        let updatedDate: Date
-        let visibility: Visibility
+        public let link: URL
+        public let id: Int
+        public let author: Author
+        public let body: String
+        public let updateAuthor: Author
+        public let createdDate: Date
+        public let updatedDate: Date
+        public let visibility: Visibility
     }
 }
 
@@ -120,10 +120,10 @@ public extension Model.Comment {
 
 public extension Model {
     struct Author: Decodable {
-        let link: URL
-        let name: String
-        let displayName: String
-        let isActive: Bool
+        public let link: URL
+        public let name: String
+        public let displayName: String
+        public let isActive: Bool
     }
 }
 
@@ -137,22 +137,22 @@ public extension Model.Author {
 
 public extension Model {
     struct Visibility: Decodable {
-        enum `Type`: String, Decodable {
+        public enum `Type`: String, Decodable {
             case role, group
         }
-        let type: Type
-        let value: String
+        public let type: Type
+        public let value: String
     }
 }
 
 public extension Model {
     struct Epic: Decodable {
-        let id: Int
-        let link: String
-        let name: String
-        let summary: String
-        let color: String
-        let isDone: Bool
+        public let id: Int
+        public let link: String
+        public let name: String
+        public let summary: String
+        public let color: String
+        public let isDone: Bool
     }
 }
 
@@ -170,16 +170,16 @@ public extension Model.Epic {
 
 public extension Model {
     struct WorkLog: Decodable {
-        let link: URL
-        let author: Author
-        let updateAuthor: Author
-        let comment: String
-        let updatedDate: Date
-        let visibility: Visibility
-        let startedDate: Date
-        let timeSpentSeconds: Int
-        let id: Int
-        let issueID: Int
+        public let link: URL
+        public let author: Author
+        public let updateAuthor: Author
+        public let comment: String
+        public let updatedDate: Date
+        public let visibility: Visibility
+        public let startedDate: Date
+        public let timeSpentSeconds: Int
+        public let id: Int
+        public let issueID: Int
     }
 }
 
@@ -195,9 +195,9 @@ public extension Model.WorkLog {
 
 public extension Model {
     struct TimeTracking: Decodable {
-        let originalEstimateSeconds: Int
-        let remainingEstimateSeconds: Int
-        let timeSpentSeconds: Int
+        public let originalEstimateSeconds: Int
+        public let remainingEstimateSeconds: Int
+        public let timeSpentSeconds: Int
     }
 }
 
