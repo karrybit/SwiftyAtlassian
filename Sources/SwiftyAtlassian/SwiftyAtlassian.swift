@@ -28,3 +28,5 @@ public extension Atlassian where Infrastructure == Cloud {
     struct UserManagement: ServiceProtocol {}
     struct UserProvisioning: ServiceProtocol {}
 }
+
+public struct Model {}
