@@ -2,13 +2,13 @@ import Foundation
 
 public extension Model {
     struct Board: Decodable {
-        public enum `Type`: String, Decodable {
+        public enum BoardType: String, Decodable {
             case scrum, kanban
         }
         public let id: Int
         public let link: URL
         public let name: String
-        public let type: Type
+        public let type: BoardType
     }
 }
 
