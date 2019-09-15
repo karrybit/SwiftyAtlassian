@@ -39,4 +39,28 @@ public extension API {
         return network(url: url, method: .delete, header: header, body: body)
     }
 
+    func decode<T>(_ result: Result<Data, Error>) -> Result<T, Error> where T: Decodable {
+        switch result {
+        case .success(let data):
+            do {
+                let response = try JSONDecoder().decode(T.self, from: data)
+                return .success(response)
+                
+            } catch {
+                // TODO: クライアントに伝える用のError定義を返却する（parse error とか言われてもわからん）
+                return .failure(error)
+            }
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
+        switch result {
+        case .success(_):
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
 }
