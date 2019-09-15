@@ -2,7 +2,7 @@ import Foundation
 
 public extension Model.Configuration {
     struct Ranking: Decodable {
-        let rankCustomFieldID: Int
+        public let rankCustomFieldID: Int
     }
 }
 

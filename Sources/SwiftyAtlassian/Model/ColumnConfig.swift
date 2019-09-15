@@ -2,15 +2,15 @@ import Foundation
 
 public extension Model.Configuration {
     struct ColumnConfig: Decodable {
-        let name: String
-        let statuses: [Model.Configuration.ColumnConfig.Status]
+        public let name: String
+        public let statuses: [Model.Configuration.ColumnConfig.Status]
     }
 }
 
 public extension Model.Configuration.ColumnConfig {
     struct Status: Decodable {
-        let id: Int
-        let link: URL
+        public let id: Int
+        public let link: URL
     }
 }
 

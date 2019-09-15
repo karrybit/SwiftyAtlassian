@@ -2,13 +2,13 @@ import Foundation
 
 public extension Model {
     struct Configuration: Decodable {
-        let id: Int
-        let name: String
-        let link: URL
-        let filter: Model.Configuration.Filter
-        let columnConfigs: [Model.Configuration.ColumnConfig]
-        let estimation: Model.Configuration.Estimation
-        let ranking: Model.Configuration.Ranking
+        public let id: Int
+        public let name: String
+        public let link: URL
+        public let filter: Model.Configuration.Filter
+        public let columnConfigs: [Model.Configuration.ColumnConfig]
+        public let estimation: Model.Configuration.Estimation
+        public let ranking: Model.Configuration.Ranking
     }
 }
 

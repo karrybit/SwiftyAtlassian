@@ -2,8 +2,8 @@ import Foundation
 
 public extension Model.Configuration {
     struct Filter: Decodable {
-        let id: Int
-        let link: URL
+        public let id: Int
+        public let link: URL
     }
 }
 

@@ -5,15 +5,15 @@ public extension Model.Configuration {
         public enum EstimationType: String, Decodable {
             case field
         }
-        let type: EstimationType
-        let field: Model.Configuration.Estimation.Field
+        public let type: EstimationType
+        public let field: Model.Configuration.Estimation.Field
     }
 }
 
 public extension Model.Configuration.Estimation {
     struct Field: Decodable {
-        let fieldID: String
-        let displayName: String
+        public let fieldID: String
+        public let displayName: String
     }
 }
 
