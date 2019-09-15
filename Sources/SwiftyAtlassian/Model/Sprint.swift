@@ -3,7 +3,7 @@ import Foundation
 public extension Model {
     struct Sprint: Decodable {
         public enum State: String, Decodable {
-            case future, closed
+            case future, active, closed
         }
         public let id: Int
         public let link: URL
