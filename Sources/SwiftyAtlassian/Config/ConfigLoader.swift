@@ -31,7 +31,8 @@ private extension ConfigLoader {
                 fatalError("⛔️ couldn't load user config")
         }
         
-        return Config(name: name, password: password, baseUrlString: baseUrlString)
+        let suffixAdjustedURLString = baseUrlString.hasSuffix("/") ? baseUrlString : baseUrlString + "/"
+        return Config(name: name, password: password, baseUrlString: suffixAdjustedURLString)
     }
     
     static func fetchConfigFile(at filePath: String) -> Node {

@@ -8,6 +8,6 @@ public struct Config {
     public init(name: String, password: String, baseUrlString: String) {
         self.name = name
         self.password = password
-        self.baseUrlString = baseUrlString.hasSuffix("/") ? baseUrlString : baseUrlString + "/"
+        self.baseUrlString = baseUrlString
     }
 }
