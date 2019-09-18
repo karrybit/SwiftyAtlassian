@@ -39,7 +39,7 @@ public extension API {
         return network(url: url, method: .delete, header: header, body: body)
     }
 
-    func decode<T>(_ result: Result<Data, Error>) -> Result<T, Error> where T: Decodable {
+    static func decode<T>(_ result: Result<Data, Error>) -> Result<T, Error> where T: Decodable {
         switch result {
         case .success(let data):
             do {
@@ -55,7 +55,7 @@ public extension API {
         }
     }
     
-    func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
+    static func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
         switch result {
         case .success(_):
             return .success(())
