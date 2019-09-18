@@ -16,7 +16,13 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftyAtlassian",
-            dependencies: ["Yams"]
+            dependencies: ["Yams"],
+            path: "Sources"
         ),
+        .testTarget(
+            name: "SwiftyAtlassianTests",
+            dependencies: ["SwiftyAtlassian"],
+            path: "Tests"
+        )
     ]
 )
