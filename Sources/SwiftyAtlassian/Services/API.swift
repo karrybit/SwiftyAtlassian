@@ -39,11 +39,21 @@ public extension API {
         return network(url: url, method: .delete, header: header, body: body)
     }
 
-    static func decode<T>(_ result: Result<Data, Error>) -> Result<T, Error> where T: Decodable {
+    private static var defaultDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }
+    
+    static func decode<T>(_ result: Result<Data, Error>, customDateFormatter: DateFormatter? = nil) -> Result<T, Error> where T: Decodable {
         switch result {
         case .success(let data):
             do {
-                let response = try JSONDecoder().decode(T.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(customDateFormatter ?? defaultDateFormatter)
+                let response = try decoder.decode(T.self, from: data)
                 return .success(response)
                 
             } catch {
