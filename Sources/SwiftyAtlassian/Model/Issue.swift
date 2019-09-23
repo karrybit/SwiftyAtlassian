@@ -3,7 +3,7 @@ import Foundation
 public extension Model {
     struct Issue: Decodable {
         public let expand: String
-        public let id: Int
+        public let id: String
         public let link: URL
         public let key: String
         public let field: Model.Field
