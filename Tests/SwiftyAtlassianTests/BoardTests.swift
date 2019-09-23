@@ -5,7 +5,7 @@ final class BoardTests: XCTestCase {}
 
 // Test
 extension BoardTests {
-    func testDecodeJSON1() {
+    func testDecodeBoardJSON1() {
         let data = boardJSON1.data(using: .utf8)!
         let result: Result<Model.Board, Error> = API.decode(.success(data))
         switch result {
@@ -17,7 +17,7 @@ extension BoardTests {
         }
     }
     
-    func testDecodeJSON2() {
+    func testDecodeBoardJSON2() {
         let data = boardJSON2.data(using: .utf8)!
         let result: Result<Model.Board, Error> = API.decode(.success(data))
         switch result {
@@ -42,8 +42,8 @@ extension BoardTests {
     }
     
     static var allTests: [(String, (BoardTests) -> () -> ())] {
-        return [("testDecodeJSON1", testDecodeJSON1),
-                ("testDecodeJSON2", testDecodeJSON2),
+        return [("testDecodeBoardJSON1", testDecodeBoardJSON1),
+                ("testDecodeBoardJSON2", testDecodeBoardJSON2),
                 ("testDecodeBoardInContainerJSON", testDecodeBoardInContainerJSON)]
     }
 }
