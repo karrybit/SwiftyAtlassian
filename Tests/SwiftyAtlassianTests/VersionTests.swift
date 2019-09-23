@@ -16,6 +16,12 @@ extension VersionTests {
     func testDecodeVersionInContainerJSON() {
         decode(json: versionInContainerJSON, to: Model.ResponseContainer<[Model.Version]>.self)
     }
+    
+    static var allTests: [(String, (VersionTests) -> () -> ())] {
+        return [("testDecodeVersionJSON1", testDecodeVersionJSON1),
+                ("testDecodeVersionJSON1", testDecodeVersionJSON1),
+                ("testDecodeVersionInContainerJSON", testDecodeVersionInContainerJSON)]
+    }
 }
 
 // Test Data

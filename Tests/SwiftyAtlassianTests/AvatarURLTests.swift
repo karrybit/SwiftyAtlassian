@@ -12,6 +12,11 @@ extension AvatarURLTests {
     func testDecodeAvatarURLsJSON2() {
         decode(json: avatarURLsJSON2, to: Model.AvatarURL.self)
     }
+    
+    static var allTests: [(String, (AvatarURLTests) -> () -> ())] {
+        return [("testDecodeAvatarURLsJSON1", testDecodeAvatarURLsJSON1),
+                ("testDecodeAvatarURLsJSON2", testDecodeAvatarURLsJSON2)]
+    }
 }
 
 // Test Data

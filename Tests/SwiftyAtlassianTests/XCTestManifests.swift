@@ -6,8 +6,12 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(SprintTests.allTests),
         testCase(BoardTests.allTests),
         testCase(EpicTests.allTests),
-//        testCase(ProjectTests.allTests),
-        testCase(ProjectCategoryTests.allTests)
+        testCase(ProjectTests.allTests),
+        testCase(ProjectCategoryTests.allTests),
+        testCase(AvatarURLTests.allTests),
+        testCase(VersionTests.allTests),
+        testCase(AuthorTests.allTests),
+        testCase(VisibilityTests.allTests)
     ]
 }
 #endif
