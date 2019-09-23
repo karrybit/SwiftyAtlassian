@@ -8,6 +8,10 @@ extension CommentTests {
     func testDecodeCommentsJSON() {
         decode(json: commentsJSON, to: [Model.Comment].self)
     }
+    
+    static var allTests: [(String, (CommentTests) -> () -> ())] {
+        return [("testDecodeCommentsJSON", testDecodeCommentsJSON)]
+    }
 }
 
 // Test Data

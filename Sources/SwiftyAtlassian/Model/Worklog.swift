@@ -10,8 +10,8 @@ public extension Model {
         public let visibility: Model.Visibility
         public let startedDate: Date
         public let timeSpentSeconds: Int
-        public let id: Int
-        public let issueID: Int
+        public let id: String
+        public let issueID: String
     }
 }
 

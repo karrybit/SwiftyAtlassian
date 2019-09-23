@@ -9,6 +9,7 @@ extension XCTestCase {
         case .success(_):
             XCTAssert(true)
         case .failure(let error):
+            debugPrint(error)
             XCTFail(error.localizedDescription)
         }
     }
