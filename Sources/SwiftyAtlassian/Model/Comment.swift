@@ -3,7 +3,7 @@ import Foundation
 public extension Model {
     struct Comment: Decodable {
         public let link: URL
-        public let id: Int
+        public let id: String
         public let author: Model.Author
         public let body: String
         public let updateAuthor: Model.Author
