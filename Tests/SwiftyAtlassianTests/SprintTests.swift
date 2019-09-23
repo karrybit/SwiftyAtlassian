@@ -6,39 +6,15 @@ final class SprintTests: XCTestCase {}
 // Test
 extension SprintTests {
     func testDecodeSprintJSON1() {
-        let data = sprintJSON1.data(using: .utf8)!
-        let result: Result<Model.Sprint, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: sprintJSON1, to: Model.Sprint.self)
     }
     
     func testDecodeSprintJSON2() {
-        let data = sprintJSON2.data(using: .utf8)!
-        let result: Result<Model.Sprint, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: sprintJSON2, to: Model.Sprint.self)
     }
     
     func testDecodeSprintInContainerJSON() {
-        let data = sprintInContainerJSON.data(using: .utf8)!
-        let result: Result<Model.ResponseContainer<[Model.Sprint]>, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: sprintInContainerJSON, to: Model.ResponseContainer<[Model.Sprint]>.self)
     }
     
     static var allTests: [(String, (SprintTests) -> () -> ())]  {

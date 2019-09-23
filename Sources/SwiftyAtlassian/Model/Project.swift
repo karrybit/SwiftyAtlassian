@@ -3,7 +3,7 @@ import Foundation
 public extension Model {
     struct Project: Decodable {
         public let link: URL
-        public let id: Int
+        public let id: String
         public let key: String
         public let name: String
         public let avatarURLs: Model.AvatarURL

@@ -6,15 +6,7 @@ final class EpicTests: XCTestCase {}
 // Test
 extension EpicTests {
     func testDecodeEpicJSON() {
-        let data = epicJSON.data(using: .utf8)!
-        let result: Result<Model.Epic, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: epicJSON, to: Model.Epic.self)
     }
     
     static var allTests: [(String, (EpicTests) -> () -> ())] {

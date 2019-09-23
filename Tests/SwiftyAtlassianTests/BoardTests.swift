@@ -6,39 +6,15 @@ final class BoardTests: XCTestCase {}
 // Test
 extension BoardTests {
     func testDecodeBoardJSON1() {
-        let data = boardJSON1.data(using: .utf8)!
-        let result: Result<Model.Board, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: boardJSON1, to: Model.Board.self)
     }
     
     func testDecodeBoardJSON2() {
-        let data = boardJSON2.data(using: .utf8)!
-        let result: Result<Model.Board, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: boardJSON2, to: Model.Board.self)
     }
     
     func testDecodeBoardInContainerJSON() {
-        let data = boardInContainerJSON.data(using: .utf8)!
-        let result: Result<Model.ResponseContainer<[Model.Board]>, Error> = API.decode(.success(data))
-        switch result {
-        case .success(_):
-            XCTAssert(true)
-        case .failure(let error):
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
-        }
+        decode(json: boardInContainerJSON, to: Model.ResponseContainer<[Model.Board]>.self)
     }
     
     static var allTests: [(String, (BoardTests) -> () -> ())] {
