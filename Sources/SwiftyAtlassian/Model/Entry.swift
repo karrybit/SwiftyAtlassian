@@ -5,12 +5,13 @@ public extension Model {
         public let issueID: Int
         public let issueKey: String
         public let status: Int
+        public let errors: [String]?
     }
 }
 
 public extension Model.Entry {
     enum CodingKeys: String, CodingKey {
         case issueID = "issueId"
-        case issueKey, status
+        case issueKey, status, errors
     }
 }
