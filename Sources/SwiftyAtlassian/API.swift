@@ -32,8 +32,11 @@ public protocol API {
 }
 
 public extension API where Self: ServiceProtocol {
-    static func path(c: Config) -> String {
-        return c.baseUrlString + servicePath + endpoint
+    static func path(c: Config) -> Result<URL, Error> {
+        guard let url = URL(string: c.baseUrlString + servicePath + endpoint) else {
+            return .failure(URLError(.badURL))
+        }
+        return .success(url)
     }
 }
 
