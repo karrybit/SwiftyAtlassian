@@ -28,14 +28,20 @@ let defaultDateFormatter: DateFormatter = {
 }()
 
 public protocol API {
-    static var path: String { get }
+    static var endpoint: String { get }
+}
+
+public extension API where Self: ServiceProtocol {
+    static func path(c: Config) -> String {
+        return c.baseUrlString + servicePath + endpoint
+    }
 }
 
 public extension API {
-    static var path: String {
+    static var endpoint: String {
         return ""
     }
-    
+
     typealias Body = [String: Any]
     typealias Header = [String: String]
 
@@ -48,7 +54,7 @@ public extension API {
         }
         let credential = credentialData.base64EncodedString(options: [])
         _header["Authorization"] = "Basic \(credential)"
-        
+
         _header.merge(header) { (_, new) in return new }
 
         return _request(url: url, method: method, header: _header, body: body)
@@ -57,25 +63,25 @@ public extension API {
     static func _request(url: URL, method: SwiftyAtlassianMethod, header: Header, body: Body) -> Result<Data, Error> {
         let semaphore = DispatchSemaphore(value: 0)
         var request = URLRequest(url: url)
-        
+
         request.allHTTPHeaderFields = header
         request.httpMethod = method.string
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        
+
         var result = Result<Data, Error>.failure(URLError(.timedOut))
-        
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             defer { semaphore.signal() }
-            
+
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                 print("⛔️ not found status code")
                 return
             }
-            
+
             if (200...203).contains(statusCode), let data = data {
                 print("✅ \(String(describing: response))")
                 result = .success(data)
-                
+
             } else {
                 print("🚫 statusCode: \(statusCode)")
                 if let error = error {
@@ -84,13 +90,13 @@ public extension API {
                 }
             }
         }
-        
+
         task.resume()
         semaphore.wait()
-        
+
         return result
     }
-    
+
     static func decode<T>(_ result: Result<Data, Error>, customDateFormatter: DateFormatter? = nil) -> Result<T, Error> where T: Decodable {
         switch result {
         case .success(let data):
@@ -99,7 +105,7 @@ public extension API {
                 decoder.dateDecodingStrategy = .formatted(customDateFormatter ?? defaultDateFormatter)
                 let response = try decoder.decode(T.self, from: data)
                 return .success(response)
-                
+
             } catch {
                 // TODO: クライアントに伝える用のError定義を返却する（parse error とか言われてもわからん）
                 return .failure(error)
@@ -108,7 +114,7 @@ public extension API {
             return .failure(error)
         }
     }
-    
+
     static func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
         switch result {
         case .success(_):
