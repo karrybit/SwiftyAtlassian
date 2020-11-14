@@ -8,6 +8,10 @@ public enum Hosting {
 
 public struct Atlassian<Host: Hostable> {}
 
+public protocol ServiceProtocol {
+    static var servicePath: String { get }
+}
+
 public extension Atlassian {
     struct Bitbucket: ServiceProtocol {}
     struct Confluence: ServiceProtocol {}

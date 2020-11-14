@@ -1,71 +1,77 @@
 import Foundation
 
+public protocol JiraAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.Jira {}
+
 public extension Atlassian.Jira {
-    struct Attachment: API {}
-    struct ApplicationProperties: API {}
-    struct ApplicationRole: API {}
-    struct Auditing: API {}
-    struct Avatar: API {}
-    struct Configuration: API {}
-    struct Comment: API {}
-    struct Component: API {}
-    struct CustomFieldOption: API {}
-    struct Dashboard: API {}
-    struct Field: API {}
-    struct Filter: API {}
-    struct Group: API {}
-    struct GroupUserPicker: API {}
-    struct Issue: API {}
-    struct IssueLink: API {}
-    struct IssueLinkType: API {}
-    struct IssueSecuritySchemes:  API {}
-    struct IssueType: API {}
-    struct JQL: API {}
-    struct MyPermissions: API {}
-    struct MyPreferences: API {}
-    struct Myself: API {}
-    struct NotificationScheme: API {}
-    struct Permissions: API {}
-    struct PermissionScheme: API {}
-    struct Priority: API {}
-    struct Project: API {}
-    struct ProjectCategory: API {}
-    struct ProjectValidate: API {}
-    struct Resolution: API {}
-    struct Role: API {}
-    struct Screens: API {}
-    struct Search: API {}
-    struct SecurityLevel: API {}
-    struct ServerInfo: API {}
-    struct Settings: API {}
-    struct Status: API {}
-    struct StatusCategory: API {}
-    struct UniversalAvatar: API {}
-    struct User: API {}
-    struct Version: API {}
-    struct Workflow: API {}
-    struct WorkflowScheme: API {}
-    struct WorkLog: API {}
+    static var servicePath: String {
+        return "rest/api/"
+    }
+
+    struct Attachment: JiraAPI {}
+    struct ApplicationProperties: JiraAPI {}
+    struct ApplicationRole: JiraAPI {}
+    struct Auditing: JiraAPI {}
+    struct Avatar: JiraAPI {}
+    struct Configuration: JiraAPI {}
+    struct Comment: JiraAPI {}
+    struct Component: JiraAPI {}
+    struct CustomFieldOption: JiraAPI {}
+    struct Dashboard: JiraAPI {}
+    struct Field: JiraAPI {}
+    struct Filter: JiraAPI {}
+    struct Group: JiraAPI {}
+    struct GroupUserPicker: JiraAPI {}
+    struct Issue: JiraAPI {}
+    struct IssueLink: JiraAPI {}
+    struct IssueLinkType: JiraAPI {}
+    struct IssueSecuritySchemes: JiraAPI {}
+    struct IssueType: JiraAPI {}
+    struct JQL: JiraAPI {}
+    struct MyPermissions: JiraAPI {}
+    struct MyPreferences: JiraAPI {}
+    struct Myself: JiraAPI {}
+    struct NotificationScheme: JiraAPI {}
+    struct Permissions: JiraAPI {}
+    struct PermissionScheme: JiraAPI {}
+    struct Priority: JiraAPI {}
+    struct Project: JiraAPI {}
+    struct ProjectCategory: JiraAPI {}
+    struct ProjectValidate: JiraAPI {}
+    struct Resolution: JiraAPI {}
+    struct Role: JiraAPI {}
+    struct Screens: JiraAPI {}
+    struct Search: JiraAPI {}
+    struct SecurityLevel: JiraAPI {}
+    struct ServerInfo: JiraAPI {}
+    struct Settings: JiraAPI {}
+    struct Status: JiraAPI {}
+    struct StatusCategory: JiraAPI {}
+    struct UniversalAvatar: JiraAPI {}
+    struct User: JiraAPI {}
+    struct Version: JiraAPI {}
+    struct Workflow: JiraAPI {}
+    struct WorkflowScheme: JiraAPI {}
+    struct WorkLog: JiraAPI {}
 }
 
 public extension Atlassian.Jira where Host == Hosting.SelfManaged {
-    struct Cluster: API {}
-    struct ClusterZdu: API {}
-    struct CustomFields: API {}
-    struct Summary: API {}
-    struct IssueTypeScheme: API {}
-    struct LicenseValidator: API {}
-    struct JMX: API {}
-    struct Password: API {}
-    struct PrioritySchemes: API {}
-    struct Reindex: API {}
-    struct Upgrade: API {}
-    struct Session: API {}
-    struct WebSudo: API {}
+    struct Cluster: JiraAPI {}
+    struct ClusterZdu: JiraAPI {}
+    struct CustomFields: JiraAPI {}
+    struct Summary: JiraAPI {}
+    struct IssueTypeScheme: JiraAPI {}
+    struct LicenseValidator: JiraAPI {}
+    struct JMX: JiraAPI {}
+    struct Password: JiraAPI {}
+    struct PrioritySchemes: JiraAPI {}
+    struct Reindex: JiraAPI {}
+    struct Upgrade: JiraAPI {}
+    struct Session: JiraAPI {}
+    struct WebSudo: JiraAPI {}
 }
 
 public extension Atlassian.Jira where Host == Hosting.Cloud {
-    struct Expression: API {}
-    struct Task: API {}
-    struct WebHook: API {}
+    struct Expression: JiraAPI {}
+    struct Task: JiraAPI {}
+    struct WebHook: JiraAPI {}
 }

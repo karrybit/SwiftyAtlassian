@@ -1,20 +1,26 @@
 import Foundation
 
+public protocol ConfluenceAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.Confluence {}
+
 public extension Atlassian.Confluence {
-    struct AccessMode: API {}
-    struct Audit: API {}
-    struct Content: API {}
-    struct ContentBody: API {}
-    struct Group: API {}
-    struct LongTask: API {}
-    struct Search: API {}
-    struct Space: API {}
-    struct User: API {}
+    static var servicePath: String {
+        return "rest/api/"
+    }
+
+    struct AccessMode: ConfluenceAPI {}
+    struct Audit: ConfluenceAPI {}
+    struct Content: ConfluenceAPI {}
+    struct ContentBody: ConfluenceAPI {}
+    struct Group: ConfluenceAPI {}
+    struct LongTask: ConfluenceAPI {}
+    struct Search: ConfluenceAPI {}
+    struct Space: ConfluenceAPI {}
+    struct User: ConfluenceAPI {}
 }
 
 public extension Atlassian.Confluence where Host == Hosting.Cloud {
-    struct Experimental: API {}
-    struct Relation: API {}
-    struct Settings: API {}
-    struct Template: API {}
+    struct Experimental: ConfluenceAPI {}
+    struct Relation: ConfluenceAPI {}
+    struct Settings: ConfluenceAPI {}
+    struct Template: ConfluenceAPI {}
 }

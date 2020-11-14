@@ -19,10 +19,16 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-public protocol API {}
+public protocol API {
+    associatedtype ServiceType: ServiceProtocol
+}
+
 public extension API {
-    static var endpoint: String {
-        return ""
+    static func path(_ config: Config) -> Result<URL, Error> {
+        guard let url = URL(string: config.baseUrlString + ServiceType.servicePath + endpoint) else {
+            return .failure(URLError(.badURL))
+        }
+        return .success(url)
     }
 
     typealias Body = [String: Any]
@@ -73,6 +79,10 @@ public extension API {
 }
 
 private extension API {
+    static var endpoint: String {
+        return ""
+    }
+
     static func authHeader(config: Config) -> Header {
         var header: Header = [:]
         
