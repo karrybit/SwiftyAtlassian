@@ -19,29 +19,35 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-public protocol API {
-    associatedtype ServiceType: ServiceProtocol
+protocol API {
+    static var path: String { get }
 }
 
-public extension API {
-    static var endpoint: String {
-        return ""
-    }
-
-    static func path(_ config: Config) -> Result<URL, Error> {
-        guard let url = URL(string: config.baseUrlString + ServiceType.servicePath + endpoint) else {
-            return .failure(URLError(.badURL))
-        }
-        return .success(url)
-    }
-
+extension API {
     typealias Body = [String: Any]
     typealias Header = [String: String]
 
-    static func request(_ method: SwiftyAtlassianMethod, to url: URL, header: Header = [:], body: Body = [:], with config: Config) -> Result<Data, Error> {
-        var _header = authHeader(config: config)
-        _header.merge(header){ (current, _) in return current }
-        return _request(method: method, url: url, header: _header, body: body)
+    static func urlString() -> String? {
+        guard let config = _config else {
+            return nil
+        }
+        return config.baseUrlString + path
+    }
+    
+    static func get(url: URL, header: Header, body: Body) -> Result<Data, Error> {
+        return request(method: .get, url: url, header: header, body: body)
+    }
+
+    static func post(url: URL, header: Header, body: Body) -> Result<Data, Error> {
+        return request(method: .post, url: url, header: header, body: body)
+    }
+
+    static func put(url: URL, header: Header, body: Body) -> Result<Data, Error> {
+        return request(method: .put, url: url, header: header, body: body)
+    }
+
+    static func delete(url: URL, header: Header, body: Body) -> Result<Data, Error> {
+        return request(method: .delete, url: url, header: header, body: body)
     }
 
     static func decode<T>(_ result: Result<Data, Error>, customDateFormatter: DateFormatter? = nil) -> Result<T, Error> where T: Decodable {
@@ -83,7 +89,11 @@ public extension API {
 }
 
 private extension API {
-    static func authHeader(config: Config) -> Header {
+    static func authHeader() -> Header {
+        guard let config = _config else {
+            return [:]
+        }
+        
         var header: Header = [:]
         
         /// Basic authentication
@@ -97,12 +107,14 @@ private extension API {
         return header
     }
     
-    static func _request(method: SwiftyAtlassianMethod, url: URL, header: Header, body: Body) -> Result<Data, Error> {
+    static func request(method: SwiftyAtlassianMethod, url: URL, header: Header = [:], body: Body = [:]) -> Result<Data, Error> {
         let semaphore = DispatchSemaphore(value: 0)
         var request = URLRequest(url: url)
 
-        request.allHTTPHeaderFields = header
         request.httpMethod = method.string
+        var _header = authHeader()
+        _header.merge(header) { (current, _) in current }
+        request.allHTTPHeaderFields = _header
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
 
         var result = Result<Data, Error>.failure(URLError(.timedOut))

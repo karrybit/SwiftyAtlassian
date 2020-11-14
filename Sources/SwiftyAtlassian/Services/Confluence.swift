@@ -1,26 +1,50 @@
 import Foundation
 
-public protocol ConfluenceAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.Confluence {}
-
 public extension Atlassian.Confluence {
     static var servicePath: String {
         return "rest/api/"
     }
 
-    struct AccessMode: ConfluenceAPI {}
-    struct Audit: ConfluenceAPI {}
-    struct Content: ConfluenceAPI {}
-    struct ContentBody: ConfluenceAPI {}
-    struct Group: ConfluenceAPI {}
-    struct LongTask: ConfluenceAPI {}
-    struct Search: ConfluenceAPI {}
-    struct Space: ConfluenceAPI {}
-    struct User: ConfluenceAPI {}
+    struct AccessMode: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "access_mode" }
+    }
+    struct Audit: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "audit" }
+    }
+    struct Content: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "content" }
+    }
+    struct ContentBody: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "content_body" }
+    }
+    struct Group: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "group" }
+    }
+    struct LongTask: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "long_task" }
+    }
+    struct Search: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "search" }
+    }
+    struct Space: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "space" }
+    }
+    struct User: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "user" }
+    }
 }
 
 public extension Atlassian.Confluence where Host == Hosting.Cloud {
-    struct Experimental: ConfluenceAPI {}
-    struct Relation: ConfluenceAPI {}
-    struct Settings: ConfluenceAPI {}
-    struct Template: ConfluenceAPI {}
+    struct Experimental: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "experimental" }
+    }
+    struct Relation: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "relation" }
+    }
+    struct Settings: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "settings" }
+    }
+    struct Template: API {
+        public static var path: String { Atlassian.Confluence.servicePath + "template" }
+    }
 }
