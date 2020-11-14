@@ -1,73 +1,71 @@
 import Foundation
 
-public protocol JiraAPI {}
-
 public extension Atlassian.Jira {
-    class Attachment: API, JiraAPI {}
-    class ApplicationProperties: API, JiraAPI {}
-    class ApplicationRole: API, JiraAPI {}
-    class Auditing: API, JiraAPI {}
-    class Avatar: API, JiraAPI {}
-    class Configuration: API, JiraAPI {}
-    class Comment: API, JiraAPI {}
-    class Component: API, JiraAPI {}
-    class CustomFieldOption: API, JiraAPI {}
-    class Dashboard: API, JiraAPI {}
-    class Field: API, JiraAPI {}
-    class Filter: API, JiraAPI {}
-    class Group: API, JiraAPI {}
-    class GroupUserPicker: API, JiraAPI {}
-    class Issue: API, JiraAPI {}
-    class IssueLink: API, JiraAPI {}
-    class IssueLinkType: API, JiraAPI {}
-    class IssueSecuritySchemes:  API, JiraAPI {}
-    class IssueType: API, JiraAPI {}
-    class JQL: API, JiraAPI {}
-    class MyPermissions: API, JiraAPI {}
-    class MyPreferences: API, JiraAPI {}
-    class Myself: API, JiraAPI {}
-    class NotificationScheme: API, JiraAPI {}
-    class Permissions: API, JiraAPI {}
-    class PermissionScheme: API, JiraAPI {}
-    class Priority: API, JiraAPI {}
-    class Project: API, JiraAPI {}
-    class ProjectCategory: API, JiraAPI {}
-    class ProjectValidate: API, JiraAPI {}
-    class Resolution: API, JiraAPI {}
-    class Role: API, JiraAPI {}
-    class Screens: API, JiraAPI {}
-    class Search: API, JiraAPI {}
-    class SecurityLevel: API, JiraAPI {}
-    class ServerInfo: API, JiraAPI {}
-    class Settings: API, JiraAPI {}
-    class Status: API, JiraAPI {}
-    class StatusCategory: API, JiraAPI {}
-    class UniversalAvatar: API, JiraAPI {}
-    class User: API, JiraAPI {}
-    class Version: API, JiraAPI {}
-    class Workflow: API, JiraAPI {}
-    class WorkflowScheme: API, JiraAPI {}
-    class WorkLog: API, JiraAPI {}
+    struct Attachment: API {}
+    struct ApplicationProperties: API {}
+    struct ApplicationRole: API {}
+    struct Auditing: API {}
+    struct Avatar: API {}
+    struct Configuration: API {}
+    struct Comment: API {}
+    struct Component: API {}
+    struct CustomFieldOption: API {}
+    struct Dashboard: API {}
+    struct Field: API {}
+    struct Filter: API {}
+    struct Group: API {}
+    struct GroupUserPicker: API {}
+    struct Issue: API {}
+    struct IssueLink: API {}
+    struct IssueLinkType: API {}
+    struct IssueSecuritySchemes:  API {}
+    struct IssueType: API {}
+    struct JQL: API {}
+    struct MyPermissions: API {}
+    struct MyPreferences: API {}
+    struct Myself: API {}
+    struct NotificationScheme: API {}
+    struct Permissions: API {}
+    struct PermissionScheme: API {}
+    struct Priority: API {}
+    struct Project: API {}
+    struct ProjectCategory: API {}
+    struct ProjectValidate: API {}
+    struct Resolution: API {}
+    struct Role: API {}
+    struct Screens: API {}
+    struct Search: API {}
+    struct SecurityLevel: API {}
+    struct ServerInfo: API {}
+    struct Settings: API {}
+    struct Status: API {}
+    struct StatusCategory: API {}
+    struct UniversalAvatar: API {}
+    struct User: API {}
+    struct Version: API {}
+    struct Workflow: API {}
+    struct WorkflowScheme: API {}
+    struct WorkLog: API {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Server {
-    class Cluster: API, JiraAPI {}
-    class ClusterZdu: API, JiraAPI {}
-    class CustomFields: API, JiraAPI {}
-    class Summary: API, JiraAPI {}
-    class IssueTypeScheme: API, JiraAPI {}
-    class LicenseValidator: API, JiraAPI {}
-    class JMX: API, JiraAPI {}
-    class Password: API, JiraAPI {}
-    class PrioritySchemes: API, JiraAPI {}
-    class Reindex: API, JiraAPI {}
-    class Upgrade: API, JiraAPI {}
-    class Session: API, JiraAPI {}
-    class WebSudo: API, JiraAPI {}
+public extension Atlassian.Jira where Infrastructure == Hosting.SelfManaged {
+    struct Cluster: API {}
+    struct ClusterZdu: API {}
+    struct CustomFields: API {}
+    struct Summary: API {}
+    struct IssueTypeScheme: API {}
+    struct LicenseValidator: API {}
+    struct JMX: API {}
+    struct Password: API {}
+    struct PrioritySchemes: API {}
+    struct Reindex: API {}
+    struct Upgrade: API {}
+    struct Session: API {}
+    struct WebSudo: API {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Cloud {
-    class Expression: API, JiraAPI {}
-    class Task: API, JiraAPI {}
-    class WebHook: API, JiraAPI {}
+public extension Atlassian.Jira where Infrastructure == Hosting.Cloud {
+    struct Expression: API {}
+    struct Task: API {}
+    struct WebHook: API {}
 }

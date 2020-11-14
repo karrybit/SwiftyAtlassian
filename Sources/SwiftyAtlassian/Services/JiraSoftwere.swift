@@ -1,24 +1,22 @@
 import Foundation
 
-public protocol JiraSoftwereAPI {}
-
 public extension Atlassian.JiraSoftware {
     static var servicePath: String {
         return "rest/agile/latest/"
     }
     
-    class Backlog: API, JiraSoftwereAPI {}
-    class Board: API, JiraSoftwereAPI {}
-    class Epic: API, JiraSoftwereAPI {}
-    class Issue: API, JiraSoftwereAPI {}
-    class Sprint: API, JiraSoftwereAPI {}
+    struct Backlog: API {}
+    struct Board: API {}
+    struct Epic: API {}
+    struct Issue: API {}
+    struct Sprint: API {}
 }
 
-public extension Atlassian.JiraSoftware where Infrastructure == Cloud {
-    class Bulk: API, JiraSoftwereAPI {}
-    class BulkRepository: API, JiraSoftwereAPI {}
-    class BulkByProperties: API, JiraSoftwereAPI {}
-    class ExistsByProperties: API, JiraSoftwereAPI {}
-    class Flag: API, JiraSoftwereAPI {}
-    class Pipelines: API, JiraSoftwereAPI {}
+public extension Atlassian.JiraSoftware where Infrastructure == Hosting.Cloud {
+    struct Bulk: API {}
+    struct BulkRepository: API {}
+    struct BulkByProperties: API {}
+    struct ExistsByProperties: API {}
+    struct Flag: API {}
+    struct Pipelines: API {}
 }

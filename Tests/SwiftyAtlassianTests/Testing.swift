@@ -4,7 +4,8 @@ import XCTest
 extension XCTestCase {
     func decode<T>(json: String, to: T.Type) where T: Decodable {
         let data = json.data(using: .utf8)!
-        let result: Result<T, Error> = API.decode(.success(data))
+        let serviceTypeForDecodeTest = Atlassian<Hosting.Cloud>.Jira.ApplicationProperties.self
+        let result: Result<T, Error> = serviceTypeForDecodeTest.decode(.success(data))
         switch result {
         case .success(_):
             XCTAssert(true)

@@ -1,22 +1,20 @@
 import Foundation
 
-public protocol ConfluenceAPI {}
-
 public extension Atlassian.Confluence {
-    class AccessMode: API, ConfluenceAPI {}
-    class Audit: API, ConfluenceAPI {}
-    class Content: API, ConfluenceAPI {}
-    class ContentBody: API, ConfluenceAPI {}
-    class Group: API, ConfluenceAPI {}
-    class LongTask: API, ConfluenceAPI {}
-    class Search: API, ConfluenceAPI {}
-    class Space: API, ConfluenceAPI {}
-    class User: API, ConfluenceAPI {}
+    struct AccessMode: API {}
+    struct Audit: API {}
+    struct Content: API {}
+    struct ContentBody: API {}
+    struct Group: API {}
+    struct LongTask: API {}
+    struct Search: API {}
+    struct Space: API {}
+    struct User: API {}
 }
 
-public extension Atlassian.Confluence where Infrastructure == Cloud {
-    class Experimental: API, ConfluenceAPI {}
-    class Relation: API, ConfluenceAPI {}
-    class Settings: API, ConfluenceAPI {}
-    class Template: API, ConfluenceAPI {}
+public extension Atlassian.Confluence where Infrastructure == Hosting.Cloud {
+    struct Experimental: API {}
+    struct Relation: API {}
+    struct Settings: API {}
+    struct Template: API {}
 }
