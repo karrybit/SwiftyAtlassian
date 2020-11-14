@@ -12,7 +12,7 @@ public extension Atlassian.Confluence {
     struct User: API {}
 }
 
-public extension Atlassian.Confluence where Infrastructure == Hosting.Cloud {
+public extension Atlassian.Confluence where Host == Hosting.Cloud {
     struct Experimental: API {}
     struct Relation: API {}
     struct Settings: API {}

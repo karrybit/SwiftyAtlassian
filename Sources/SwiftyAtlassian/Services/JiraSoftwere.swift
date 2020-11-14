@@ -1,5 +1,9 @@
 import Foundation
 
+protocol JiraSoftwareAPI: API {
+    associatedtype APIType
+}
+
 public extension Atlassian.JiraSoftware {
     static var servicePath: String {
         return "rest/agile/latest/"
@@ -12,7 +16,7 @@ public extension Atlassian.JiraSoftware {
     struct Sprint: API {}
 }
 
-public extension Atlassian.JiraSoftware where Infrastructure == Hosting.Cloud {
+public extension Atlassian.JiraSoftware where Host == Hosting.Cloud {
     struct Bulk: API {}
     struct BulkRepository: API {}
     struct BulkByProperties: API {}

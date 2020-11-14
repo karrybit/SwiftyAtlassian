@@ -19,27 +19,7 @@ private extension SwiftyAtlassianMethod {
     }
 }
 
-let defaultDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    formatter.timeZone = TimeZone(identifier: "UTC")
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    return formatter
-}()
-
-public protocol API {
-    static var endpoint: String { get }
-}
-
-public extension API where Self: ServiceProtocol {
-    static func path(c: Config) -> Result<URL, Error> {
-        guard let url = URL(string: c.baseUrlString + servicePath + endpoint) else {
-            return .failure(URLError(.badURL))
-        }
-        return .success(url)
-    }
-}
-
+public protocol API {}
 public extension API {
     static var endpoint: String {
         return ""
@@ -48,22 +28,66 @@ public extension API {
     typealias Body = [String: Any]
     typealias Header = [String: String]
 
-    static func request(config: Config, url: URL, method: SwiftyAtlassianMethod, header: Header = [:], body: Body = [:]) -> Result<Data, Error> {
-        var _header: Header = [:]
+    static func request(_ method: SwiftyAtlassianMethod, to url: URL, header: Header = [:], body: Body = [:], with config: Config) -> Result<Data, Error> {
+        var _header = authHeader(config: config)
+        _header.merge(header){ (current, _) in return current }
+        return _request(method: method, url: url, header: _header, body: body)
+    }
+
+    static func decode<T>(_ result: Result<Data, Error>, customDateFormatter: DateFormatter? = nil) -> Result<T, Error> where T: Decodable {
+        switch result {
+        case .success(let data):
+            do {
+                let dateFormatter: DateFormatter
+                if case let .some(customDateFormatter) = customDateFormatter {
+                    dateFormatter = customDateFormatter
+                } else {
+                    dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    dateFormatter.timeZone = TimeZone(identifier: "UTC")
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                }
+
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                let response = try decoder.decode(T.self, from: data)
+                return .success(response)
+
+            } catch {
+                // TODO: クライアントに伝える用のError定義を返却する（parse error とか言われてもわからん）
+                return .failure(error)
+            }
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+
+    static func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
+        switch result {
+        case .success(_):
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+}
+
+private extension API {
+    static func authHeader(config: Config) -> Header {
+        var header: Header = [:]
+        
         /// Basic authentication
-        _header["Content-Type"] = "application/json"
+        header["Content-Type"] = "application/json"
         guard let credentialData = "\(config.name):\(config.password)".data(using: String.Encoding.utf8) else {
             fatalError("⛔️ user credential data is not found.")
         }
         let credential = credentialData.base64EncodedString(options: [])
-        _header["Authorization"] = "Basic \(credential)"
-
-        _header.merge(header) { (_, new) in return new }
-
-        return _request(url: url, method: method, header: _header, body: body)
+        header["Authorization"] = "Basic \(credential)"
+        
+        return header
     }
-
-    static func _request(url: URL, method: SwiftyAtlassianMethod, header: Header, body: Body) -> Result<Data, Error> {
+    
+    static func _request(method: SwiftyAtlassianMethod, url: URL, header: Header, body: Body) -> Result<Data, Error> {
         let semaphore = DispatchSemaphore(value: 0)
         var request = URLRequest(url: url)
 
@@ -98,32 +122,5 @@ public extension API {
         semaphore.wait()
 
         return result
-    }
-
-    static func decode<T>(_ result: Result<Data, Error>, customDateFormatter: DateFormatter? = nil) -> Result<T, Error> where T: Decodable {
-        switch result {
-        case .success(let data):
-            do {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .formatted(customDateFormatter ?? defaultDateFormatter)
-                let response = try decoder.decode(T.self, from: data)
-                return .success(response)
-
-            } catch {
-                // TODO: クライアントに伝える用のError定義を返却する（parse error とか言われてもわからん）
-                return .failure(error)
-            }
-        case .failure(let error):
-            return .failure(error)
-        }
-    }
-
-    static func decode(_ result: Result<Data, Error>) -> Result<(), Error> {
-        switch result {
-        case .success(_):
-            return .success(())
-        case .failure(let error):
-            return .failure(error)
-        }
     }
 }

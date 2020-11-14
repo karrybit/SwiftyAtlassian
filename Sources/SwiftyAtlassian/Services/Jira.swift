@@ -48,7 +48,7 @@ public extension Atlassian.Jira {
     struct WorkLog: API {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Hosting.SelfManaged {
+public extension Atlassian.Jira where Host == Hosting.SelfManaged {
     struct Cluster: API {}
     struct ClusterZdu: API {}
     struct CustomFields: API {}
@@ -64,7 +64,7 @@ public extension Atlassian.Jira where Infrastructure == Hosting.SelfManaged {
     struct WebSudo: API {}
 }
 
-public extension Atlassian.Jira where Infrastructure == Hosting.Cloud {
+public extension Atlassian.Jira where Host == Hosting.Cloud {
     struct Expression: API {}
     struct Task: API {}
     struct WebHook: API {}
