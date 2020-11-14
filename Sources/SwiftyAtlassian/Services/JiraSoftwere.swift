@@ -1,6 +1,8 @@
 import Foundation
 
-public protocol JiraSoftwareAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.JiraSoftware {}
+public protocol JiraSoftwareSelfManagedAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.JiraSoftware {}
+public protocol JiraSoftwareCloudAPI: API where ServiceType == Atlassian<Hosting.SelfManaged>.JiraSoftware {}
+public protocol JiraSoftwareAPI: JiraSoftwareSelfManagedAPI & JiraSoftwareCloudAPI {}
 
 public extension Atlassian.JiraSoftware {
     static var servicePath: String {

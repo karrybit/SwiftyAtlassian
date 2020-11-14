@@ -24,6 +24,10 @@ public protocol API {
 }
 
 public extension API {
+    static var endpoint: String {
+        return ""
+    }
+
     static func path(_ config: Config) -> Result<URL, Error> {
         guard let url = URL(string: config.baseUrlString + ServiceType.servicePath + endpoint) else {
             return .failure(URLError(.badURL))
@@ -79,10 +83,6 @@ public extension API {
 }
 
 private extension API {
-    static var endpoint: String {
-        return ""
-    }
-
     static func authHeader(config: Config) -> Header {
         var header: Header = [:]
         
