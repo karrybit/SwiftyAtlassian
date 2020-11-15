@@ -11,9 +11,7 @@ public extension Atlassian.Confluence {
     struct Audit: API {
         public static var path: String { Atlassian.Confluence.servicePath + "audit" }
     }
-    struct Content: API {
-        public static var path: String { Atlassian.Confluence.servicePath + "content" }
-    }
+    struct Content: API {}
     struct ContentBody: API {
         public static var path: String { Atlassian.Confluence.servicePath + "content_body" }
     }
