@@ -5,7 +5,7 @@ extension Atlassian.JiraSoftware.Sprint {
 }
 
 public extension Atlassian.JiraSoftware.Sprint {
-    static func create(name: String, dateRange:(start: Date, end: Date)?, originBoardID: Int, dateFormatter: DateFormatter) -> Result<Model.Sprint, Error> {
+    static func create(name: String, originBoardID: Int, dateSetting: (start: Date, end: Date, formatter: DateFormatter)?) -> Result<Model.Sprint, Error> {
         guard let urlString = urlString(), let url = URL(string: urlString) else {
             return .failure(URLError(.badURL))
         }
@@ -14,9 +14,9 @@ public extension Atlassian.JiraSoftware.Sprint {
             var body = [String: Any]()
             body["name"] = name
             body["originBoardId"] = originBoardID
-            if let dateRange = dateRange {
-                body["startDate"] = dateFormatter.string(from: dateRange.start)
-                body["endDate"] = dateFormatter.string(from: dateRange.end)
+            if let dateSetting = dateSetting {
+                body["startDate"] = dateSetting.formatter.string(from: dateSetting.start)
+                body["endDate"] = dateSetting.formatter.string(from: dateSetting.end)
             }
             return body
         }()
