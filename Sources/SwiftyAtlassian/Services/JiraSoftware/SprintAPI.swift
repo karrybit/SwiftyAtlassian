@@ -5,7 +5,7 @@ extension Atlassian.JiraSoftware.Sprint {
 }
 
 public extension Atlassian.JiraSoftware.Sprint {
-    static func create(config: Config, name: String, dateRange:(start: Date, end: Date)?, originBoardID: Int, dateFormatter: DateFormatter) -> Result<Model.Sprint, Error> {
+    static func create(name: String, dateRange:(start: Date, end: Date)?, originBoardID: Int, dateFormatter: DateFormatter) -> Result<Model.Sprint, Error> {
         guard let urlString = urlString(), let url = URL(string: urlString) else {
             return .failure(URLError(.badURL))
         }

@@ -5,7 +5,7 @@ extension Atlassian.JiraSoftware.Backlog {
 }
 
 public extension Atlassian.JiraSoftware.Backlog {
-    static func moveIssue(config: Config, IDs: [String]) -> Result<(), Error> {
+    static func moveIssue(IDs: [String]) -> Result<(), Error> {
         guard let urlString = urlString(), let url = URL(string: urlString) else {
             return .failure(URLError(.badURL))
         }

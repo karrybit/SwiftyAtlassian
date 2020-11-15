@@ -25,7 +25,7 @@ public extension Atlassian.JiraSoftware.Board {
         return decode(response)
     }
     
-    static func createBoard(config: Config, name: String, type: Model.Board.BoardType, filterID: Int) -> Result<Model.Board, Error> {
+    static func createBoard(name: String, type: Model.Board.BoardType, filterID: Int) -> Result<Model.Board, Error> {
         guard let urlString = urlString(), let url = URL(string: urlString) else {
             return .failure(URLError(.badURL))
         }

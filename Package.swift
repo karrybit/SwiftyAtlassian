@@ -10,13 +10,11 @@ let package = Package(
             name: "SwiftyAtlassian",
             targets: ["SwiftyAtlassian"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/jpsim/Yams.git", from: "1.0.1"),
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "SwiftyAtlassian",
-            dependencies: ["Yams"],
+            dependencies: [],
             path: "Sources"
         ),
         .testTarget(
